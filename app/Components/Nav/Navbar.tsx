@@ -1,7 +1,150 @@
-import React from 'react'
+"use client"
+
+
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react'
+import Logo from "@/public/Images/Logo-icon.png"
+import menuDot from "@/public/Images/Menu-dot.svg"
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+
+type NavLink = {
+  label: string;
+  href: string;
+  dropdown?: {
+    label: string;
+    href: string
+  }[]
+}
+
+const navLinks: NavLink[] = [
+  {
+    label: "Home",
+    href: "/"
+  }
+]
 
 export const Navbar = () => {
+
+  const [open, setOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  const toggleDropdown = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label))
+  }
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div>Navbar</div>
+    <>
+      <div className={`
+        px-[8%] lg:px-[16%] fixed top-0 left-0 w-full z-50 navbar transition-all duration-300
+        ${scrolled ? "bg-black/95 backdrop-blur-md shadow-lg" : "bg-transparent"}`}>
+        <div className='flex justify-between items-center gap-5 py-3'>
+          <div className='flex items-center gap-8'>
+            <Link href="/">
+              <div className='flex items-center gap-2 overflow-hidden'>
+                <Image
+                  src={Logo}
+                  alt="Logo"
+                  className="w-8 h-8 object-cover"
+                />
+
+                <h1 className='MetalMania text-4xl tracking-wider'>
+                  Wave<span className='text-prim'>Cast</span>
+                </h1>
+              </div>
+            </Link>
+          </div>
+
+          <div className='hidden lg:flex items-center gap-3'>
+            <nav className='hidden lg:flex space-x-6 menu-link relative z-40'>
+              {navLinks.map((link) =>
+                link.dropdown ? (
+                  <div
+                    key={link.label}
+                    className='relative group'
+                  >
+                    <Link
+                      href={link.href}
+                      className={`
+                        flex Circular-font text-lg font-medium 
+                        ${pathname === link.href
+                          ? "text-white underline font-semibold"
+                          : "text-white"
+                        } items-center gap-1 hover:text-prim
+                      `}
+                    >
+                      {link.label}
+                      <Image
+                        src={menuDot}
+                        alt="Menu Dot"
+                        className="invert brightness-100 grayscale"
+                      />
+                    </Link>
+
+                    <div className='absolute left-0 top-full hidden group-hover:block bg-gray shadow-xl p-2 rounded-lg min-h-[230px]'>
+                      {link.dropdown.map((item) => (
+                        <Link
+                          href={item.href}
+                          key={item.label}
+                          className={`
+                            block px-4 py-1 rounded-md font-medium text-lg 
+                            ${pathname === item.href
+                              ? "text-white underline font-semibold"
+                              : "text-white"
+                            } hover:text-prim hover:translate-x-1 transition-all duration-200
+                        `}
+                        >
+                          <Image
+                            src={menuDot}
+                            alt="Menu Dot"
+                            className="invert brightness-100"
+                          />
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className={`
+                      flex gap-2 text-lg font-medium
+                      ${pathname === link.href
+                        ? "text-white font-semibold"
+                        : "text-white"
+                      } hover:text-prim
+                    `}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
+            </nav>
+          </div>
+
+          <div>
+
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
