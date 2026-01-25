@@ -2,23 +2,42 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import "remixicon/fonts/remixicon.css";
 
-:root {
-  --prim: #ffb340;
-  --prim-light: #ffb340b3;
-  --second: #7A6EFF;
-  --dark-color: #1c1d20;
-  --text: #222E48;
-  --body: #1c1d20;
-  --gray-color: #3B3B3C;
-  --gray-light: #262629;
-  --white: #fff;
-  --black: #000;
+@theme {
+  --color-prim: #ffb340;
+  --color-prim-light: #ffb340b3;
+  --color-second: #7A6EFF;
+  --color-dark: #1c1d20;
+  --color-text: #222E48;
+  --color-body-bg: #1c1d20;
+  --color-gray: #3B3B3C;
+  --color-gray-light: #262629;
+  --color-white: #fff;
+  --color-black: #000;
 
   --font-kanit: "Kanit", sans-serif;
-  --font-metalMania: "Metal Mania", sans-serif;
+  --font-metal: "Metal Mania", sans-serif;
 
-  --transition-regular: 0.3s;
-  --transition-slow: 0.6s;
+  --duration-regular: 0.3s;
+  --duration-slow: 0.6s;
+}
+
+:root {
+  --prim: var(--color-prim);
+  --prim-light: var(--color-prim-light);
+  --second: var(--color-second);
+  --dark-color: var(--color-dark);
+  --text: var(--color-text);
+  --body: var(--color-body-bg);
+  --gray-color: var(--color-gray);
+  --gray-light: var(--color-gray-light);
+  --white: var(--color-white);
+  --black: var(--color-black);
+
+  --font-kanit: var(--font-kanit);
+  --font-metalMania: var(--font-metal);
+
+  --transition-regular: var(--duration-regular);
+  --transition-slow: var(--duration-slow);
 }
 
 .Kanit {
