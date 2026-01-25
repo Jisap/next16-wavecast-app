@@ -7,6 +7,8 @@ import Logo from "@/public/Images/Logo-icon.png"
 import menuDot from "@/public/Images/Menu-dot.svg"
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import MobileMenu from './MobileMenu';
+import MobileMenuFramer from './MobileMenuFramer';
 
 type NavLink = {
   label: string;
@@ -179,9 +181,31 @@ export const Navbar = () => {
             </button>
 
             {/* Mobile hamburger */}
+            <button
+              className={`lg:hidden flex flex-col gap-[5px] transition-all duration-300 ${open ? "opacity-0 pointer-events-none scale-0" : "opacity-100 scale-100"}`}
+              onClick={() => setOpen(!open)}
+            >
+              <span className="block w-6 h-[3px] bg-white transition-all"></span>
+              <span className="block w-6 h-[3px] bg-white transition-all"></span>
+              <span className="block w-6 h-[3px] bg-white transition-all"></span>
+            </button>
           </div>
+
         </div>
       </div>
+      {/* GSAP Version (Uncomment to use) */}
+      {/* <MobileMenu
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        navLinks={navLinks}
+      /> */}
+
+      {/* Framer Motion Version (Active) */}
+      <MobileMenuFramer
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        navLinks={navLinks}
+      />
     </>
   )
 }
