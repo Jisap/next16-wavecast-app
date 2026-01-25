@@ -1,8 +1,11 @@
 import React from 'react'
+import Hero from './Hero/page'
 
 const Index = () => {
   return (
-    <div>Index</div>
+    <>
+      <Hero />
+    </>
   )
 }
 

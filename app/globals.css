@@ -54,3 +54,98 @@ body {
   color: var(--white);
   font-family: var(--font-kanit);
 }
+
+.navbar {
+  z-index: 999;
+}
+
+.btn {
+  border: 1px solid var(--prim);
+  border-radius: 50px;
+  font-weight: 600;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition-slow);
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.btn:hover i {
+  transform: rotate(-180deg) !important;
+}
+
+.btn i {
+  background-color: var(--prim);
+  color: var(--black);
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-slow);
+}
+
+.btn1 {
+  color: var(--prim);
+}
+
+.btn1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50px;
+  width: 0;
+  height: 0;
+  background-color: var(--second);
+  transition: var(--transition-slow);
+  z-index: -1;
+}
+
+.btn:hover::after {
+  width: 100%;
+  height: 100%;
+  right: auto;
+  left: 0;
+  bottom: auto;
+  top: 0;
+}
+
+.btn2 {
+  background-color: var(--prim);
+  color: var(--black);
+}
+
+.btn2 i {
+  background-color: var(--black);
+  color: var(--prim);
+}
+
+.btn2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50px;
+  width: 0;
+  height: 0;
+  background-color: var(--second);
+  transition: var(--transition-slow);
+  z-index: -1;
+}
+
+.btn2:hover::after {
+  width: 100%;
+  height: 100%;
+  top: auto;
+  bottom: 0;
+  right: 0;
+  left: auto;
+}

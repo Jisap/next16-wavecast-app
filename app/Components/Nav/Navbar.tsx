@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import MobileMenu from './MobileMenu';
 import MobileMenuFramer from './MobileMenuFramer';
+import Button from '../Button/Button';
 
 type NavLink = {
   label: string;
@@ -34,8 +35,11 @@ const navLinks: NavLink[] = [
     ]
   },
   {
-    label: "Blog",
+    label: "Blogs",
     href: "/pages/Blogs",
+    dropdown: [
+      { label: "Blog Details", href: "/pages/Blogs/2" }
+    ]
   },
   {
     label: "Pages",
@@ -169,16 +173,16 @@ export const Navbar = () => {
 
           {/* Right Section */}
           <div className='flex items-center gap-4 nav-right'>
-            <button
-              className='btn btn1'
+            <Button
+              className='px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm'
             >
-              Login <i className='bi bi-arrow-right-short'></i>
-            </button>
-            <button
-              className='btn btn2'
+              Login <i className='bi bi-arrow-right-short w-5! h-5! flex! items-center! justify-center! sm:w-[30px]! sm:h-[30px]!'></i>
+            </Button>
+            <Button
+              className='hidden lg:flex'
             >
               Register <i className='bi bi-arrow-right-short'></i>
-            </button>
+            </Button>
 
             {/* Mobile hamburger */}
             <button
