@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${kanit.variable} ${metalMania.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${kanit.variable} ${metalMania.variable} h-[2000px] antialiased`}
       >
         <Navbar />
         {children}

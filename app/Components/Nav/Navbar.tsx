@@ -20,9 +20,34 @@ type NavLink = {
 const navLinks: NavLink[] = [
   {
     label: "Home",
-    href: "/"
-  }
-]
+    href: "/",
+  },
+  {
+    label: "Episodes",
+    href: "/pages/Episodes",
+    dropdown: [
+      { label: "Latest Episodes", href: "/pages/Episodes/LatestEpisodes" },
+      { label: "Favorite Episode", href: "/pages/Episodes/FavoriteEpisode" },
+      { label: "Episodes Details", href: "/pages/Episodes/2" }
+    ]
+  },
+  {
+    label: "Blog",
+    href: "/pages/Blogs",
+  },
+  {
+    label: "Pages",
+    href: "/About",
+    dropdown: [
+      { label: "About", href: "/pages/About" },
+      { label: "Host Profiles", href: "/pages/HostProfiles" },
+      { label: "Pricing Plan", href: "/pages/pricing" },
+      { label: "Faq's", href: "/pages/Faqs" },
+      { label: "Contact Us", href: "/pages/Contact" },
+      { label: "Page404", href: "/pages/not-found" }
+    ]
+  },
+];
 
 export const Navbar = () => {
 
@@ -98,7 +123,7 @@ export const Navbar = () => {
                       />
                     </Link>
 
-                    <div className='absolute left-0 top-full hidden group-hover:block bg-gray shadow-xl p-2 rounded-lg min-h-[230px]'>
+                    <div className='absolute left-0 top-full hidden group-hover:block bg-gray shadow-xl p-2 rounded-lg min-w-[230px]'>
                       {link.dropdown.map((item) => (
                         <Link
                           href={item.href}
@@ -108,7 +133,7 @@ export const Navbar = () => {
                             ${pathname === item.href
                               ? "text-white underline font-semibold"
                               : "text-white"
-                            } hover:text-prim hover:translate-x-1 transition-all duration-200
+                            } hover:text-prim hover:translate-x-1 transition-all duration-200 flex gap-2
                         `}
                         >
                           <Image
@@ -116,7 +141,7 @@ export const Navbar = () => {
                             alt="Menu Dot"
                             className="invert brightness-100"
                           />
-                          {link.label}
+                          {item.label}
                         </Link>
                       ))}
                     </div>
@@ -140,8 +165,20 @@ export const Navbar = () => {
             </nav>
           </div>
 
-          <div>
+          {/* Right Section */}
+          <div className='flex items-center gap-4 nav-right'>
+            <button
+              className='btn btn1'
+            >
+              Login <i className='bi bi-arrow-right-short'></i>
+            </button>
+            <button
+              className='btn btn2'
+            >
+              Register <i className='bi bi-arrow-right-short'></i>
+            </button>
 
+            {/* Mobile hamburger */}
           </div>
         </div>
       </div>
