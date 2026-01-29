@@ -84,11 +84,14 @@ export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
 
+
   return (
     <>
       <div className={`
         px-[8%] lg:px-[16%] fixed top-0 left-0 w-full z-50 navbar transition-all duration-300
-        ${scrolled ? "bg-black/95 backdrop-blur-md shadow-lg" : "bg-transparent"}`}>
+        ${scrolled ? "bg-black/95 backdrop-blur-md shadow-lg" : "bg-linear-to-b from-black/60 via-black/30 to-transparent"}
+      `}
+      >
         <div className='flex justify-between items-center gap-5 py-3'>
           <div className='flex items-center gap-8'>
             <Link href="/">
