@@ -81,6 +81,9 @@ export const Navbar = () => {
     };
   }, []);
 
+  const [showModal, setShowModal] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
+
   return (
     <>
       <div className={`
@@ -174,12 +177,21 @@ export const Navbar = () => {
           {/* Right Section */}
           <div className='flex items-center gap-4 nav-right'>
             <Button
+              onClick={() => {
+                setIsLogin(true)
+                setShowModal(true)
+              }}
               className='px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm'
             >
               Login <i className='bi bi-arrow-right-short w-5! h-5! flex! items-center! justify-center! sm:w-[30px]! sm:h-[30px]!'></i>
             </Button>
             <Button
               className='hidden lg:flex'
+              variant="btn2"
+              onClick={() => {
+                setIsLogin(false)
+                setShowModal(true)
+              }}
             >
               Register <i className='bi bi-arrow-right-short'></i>
             </Button>
@@ -196,13 +208,96 @@ export const Navbar = () => {
           </div>
 
         </div>
+
+        {/* Modal */}
+        {showModal && (
+          <div className='fixed inset-0 w-full h-screen z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm'>
+            <div className='relative bg-[#2D333C] border border-white/10 rounded-3xl p-10 w-[450px] md:w-[500px] shadow-2xl animate-fadeIn'>
+              {/* Close */}
+              <button
+                className='absolute top-5 right-5 text-4xl cursor-pointer text-white hover:text-prim transition-all'
+                onClick={() => setShowModal(false)}
+              >
+                <i className='bi bi-x-lg'></i>
+              </button>
+
+              {/* title */}
+              <h2 className='text-3xl font-semibold mb-8 text-white'>
+                {isLogin ? "Login to your account" : "Register your account"}
+              </h2>
+              {/* Form */}
+              <form className='flex flex-col gap-4'>
+                {!isLogin && (
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    className="w-full bg-gray-800 border border-white/10 text-white px-4 py-3 rounded-xl focus:border-prim focus:outline-none transition-all"
+                    required
+                  />
+                )}
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  className="w-full bg-gray-800 border border-white/10 text-white px-4 py-3 rounded-xl focus:border-prim focus:outline-none transition-all"
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="w-full bg-gray-800 border border-white/10 text-white px-4 py-3 rounded-xl focus:border-prim focus:outline-none transition-all"
+                  required
+                />
+
+                <button
+                  type="submit"
+                  className='w-full mt-3 bg-prim text-black py-3 rounded-xl font-semibold hover:bg-prim/80 transition-all cursor-pointer'
+                >
+                  {isLogin ? "Login Now" : "Register Now"}
+                </button>
+              </form>
+
+              {/* Switch Auth */}
+              <p className='text-center text-sm mt-4 text-white/70 font-semibold'>
+                {isLogin ? (
+                  <>
+                    Don't have an account?{" "}
+                    <button
+                      type="button"
+                      className='text-prim cursor-pointer hover:underline transition-all'
+                      onClick={() => {
+                        setIsLogin(false)
+                      }}
+                    >
+                      Register here
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    Already have an account?{" "}
+                    <button
+                      type="button"
+                      className='text-prim cursor-pointer hover:underline transition-all'
+                      onClick={() => {
+                        setIsLogin(true)
+                      }}
+                    >
+                      Login here
+                    </button>
+                  </>
+                )}
+              </p>
+
+              {/* Footer */}
+              <p className='text-center text-sm mt-6 pt-4 text-white/50 border-t border-white/10'>
+                By Signing o SignUp to <strong>Wavecast</strong>, you agree to our {" "}
+                <Link href="/terms" className='text-prim hover:underline transition-all'>Terms of Use</Link> and {" "}
+                <Link href="/privacy" className='text-prim hover:underline transition-all'>Privacy Policy</Link>
+              </p>
+            </div>
+          </div>
+        )}
       </div>
-      {/* GSAP Version (Uncomment to use) */}
-      {/* <MobileMenu
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        navLinks={navLinks}
-      /> */}
+
 
       {/* Framer Motion Version (Active) */}
       <MobileMenuFramer
