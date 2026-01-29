@@ -149,3 +149,260 @@ body {
   right: 0;
   left: auto;
 }
+
+.hero {
+  width: 100%;
+  height: 90vh;
+  background: url(../public/Images/texture-bg-1.png), rgb(38, 38, 42);
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 3%;
+  overflow: hidden !important;
+  z-index: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../public/Images/vector-line.png);
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.hero-btn button {
+  font-weight: 500;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 54.7%;
+  z-index: 0;
+  animation: smallTranslate 5s infinite ease-in-out;
+}
+
+@keyframes smallTranslate {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(5px, 5px);
+  }
+
+  50% {
+    transform: translate(0px, 0px);
+  }
+
+  75% {
+    transform: translate(-5px, -5px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.rounded-text {
+  position: absolute;
+  top: 48%;
+  left: 12%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounded-text img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: Anim-rotate 5s infinite forwards linear;
+}
+
+.rounded-text i {
+  background-color: var(--prim);
+  color: var(--black);
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--duration-regular);
+  z-index: 10;
+}
+
+.rounded-text i:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  cursor: pointer;
+}
+
+@keyframes Anim-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sun-shape img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: Anim-rotate 5s infinite forwards linear;
+}
+
+.sun-shape img:nth-child(1) {
+  top: 75%;
+  left: 5%;
+}
+
+.sun-shape img:nth-child(2) {
+  top: 40%;
+  left: 47%;
+}
+
+.sun-shape img:nth-child(3) {
+  top: 50%;
+  left: 90%;
+}
+
+/* No me funciona a mi */
+/* @media (max-width:991px) {
+  .hero {
+    height: 100%;
+    padding-bottom: 0;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 5%;
+  }
+
+  .hero-img {
+    position: relative;
+    top: 0;
+    left: 20%;
+  }
+
+  .rounded-text {
+    left: 28%;
+  }
+
+  .sun-shape img:nth-child(2) {
+    top: 14%;
+    left: 82%;
+  }
+
+  .sun-shape img:nth-child(3) {
+    top: 70%;
+    left: 82%;
+  }
+}
+
+@media (max-width:600px) {
+  .hero-img {
+    left: 5%;
+  }
+
+  .rounded-text {
+    left: 50%;
+  }
+}
+
+@media (max-width:575px) {} */
+
+
+
+/* Cambiamos a 1023px para que coincida con el breakpoint lg de Tailwind */
+@media (max-width: 1023px) {
+  .hero {
+    height: auto;
+    /* Dejar que el contenido dicte la altura en móvil */
+    min-height: 100vh;
+    padding-top: 120px;
+    /* Espacio para el Navbar */
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Centra los hijos horizontalmente */
+    text-align: center;
+    padding-bottom: 5%;
+    width: 100%;
+  }
+
+  .hero-btn {
+    justify-content: center;
+    /* Centra los botones en móvil */
+  }
+
+  .hero-img {
+    position: relative;
+    /* Clave para que entre en el flujo de la columna */
+    top: 0;
+    left: 0;
+    /* Quitamos el 20% para que se centre de verdad */
+    width: 80%;
+    /* Un poco más pequeña para que no agobie */
+    margin: 0 auto;
+    /* Centrado clásico */
+  }
+
+  .rounded-text {
+    left: 10%;
+    /* Ajustamos la posición del círculo giratorio en móvil */
+    transform: translate(-50%, -50%) scale(0.8);
+    /* Lo hacemos un pelín más pequeño */
+  }
+
+  /* Ajustamos las motas de sol para que no se amontonen */
+  .sun-shape img:nth-child(2) {
+    top: 5%;
+    left: 85%;
+  }
+
+  .sun-shape img:nth-child(3) {
+    top: 80%;
+    left: 85%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-img {
+    width: 100%;
+    left: 0;
+  }
+
+  .rounded-text {
+    left: 50%;
+    top: 0;
+    /* Lo movemos arriba de la imagen principal en móvil muy pequeño */
+  }
+}

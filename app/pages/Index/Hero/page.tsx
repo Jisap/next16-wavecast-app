@@ -20,20 +20,20 @@ const Hero = () => {
   return (
     <>
       <div className="hero">
-        {/* <div className="sun-shape">
-          <Image 
+        <div className="sun-shape">
+          <Image
             src={sunShape}
             alt="Sun Shape"
           />
-          <Image 
+          <Image
             src={sunShape}
             alt="Sun Shape"
           />
-          <Image 
+          <Image
             src={sunShape}
             alt="Sun Shape"
           />
-        </div> */}
+        </div>
 
         <div className="px-[8%] lg:px-[16%] pt-25">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
@@ -60,6 +60,28 @@ const Hero = () => {
                     Subscribe <i className="bi bi-arrow-right-short"></i>
                   </Button>
                 </div>
+
+                <div className="mt-10">
+                  <p className="tracking-wider text-xl">
+                    Listen to podcaster through
+                  </p>
+
+                  <div className="flex items-center gap-3 cursor-pointer mt-5">
+                    <Image src={brand1} alt="brand1" />
+                    <Image src={brand2} alt="brand2" />
+                    <Image src={brand3} alt="brand3" />
+                    <Image src={brand4} alt="brand4" />
+                    <Image src={brand5} alt="brand5" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full hero-img">
+              <Image src={HeroImg} alt="HeroImg" />
+              <div className="rounded-text">
+                <Image src={roundedText} alt="roundedText" />
+                <i className="bi bi-arrow-right-short"></i>
               </div>
             </div>
           </div>
