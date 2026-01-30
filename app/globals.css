@@ -332,6 +332,15 @@ body {
 
 @media (max-width:575px) {} */
 
+.dark-section {
+  background-image: url(../public//Images//texture-bg-1.png);
+  background-size: cover;
+}
+
+.light-section {
+  background: url(../public//Images//texture-bg-1.png), rgb(38, 38, 41);
+  background-size: cover;
+}
 
 
 /* Cambiamos a 1023px para que coincida con el breakpoint lg de Tailwind */
