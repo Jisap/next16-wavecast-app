@@ -210,8 +210,8 @@ body {
 
 .rounded-text {
   position: absolute;
-  top: 48%;
-  left: 12%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
@@ -385,7 +385,7 @@ body {
   }
 
   .rounded-text {
-    left: 10%;
+    left: 45%;
     /* Ajustamos la posición del círculo giratorio en móvil */
     transform: translate(-50%, -50%) scale(0.8);
     /* Lo hacemos un pelín más pequeño */
@@ -411,7 +411,7 @@ body {
 
   .rounded-text {
     left: 50%;
-    top: 0;
+    top: 50%;
     /* Lo movemos arriba de la imagen principal en móvil muy pequeño */
   }
 }

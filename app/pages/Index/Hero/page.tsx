@@ -77,7 +77,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="w-full hero-img">
+            <div className="hero-img">
               <Image src={HeroImg} alt="HeroImg" />
               <div className="rounded-text">
                 <Image src={roundedText} alt="roundedText" />
