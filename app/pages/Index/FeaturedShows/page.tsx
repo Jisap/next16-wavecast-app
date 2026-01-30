@@ -99,7 +99,7 @@ const FeaturedShows = () => {
               disableOnInteraction: false,
             }}
             breakpoints={{
-              1200: { slidesPerView: 3 },
+              1200: { slidesPerView: 2 },
               991: { slidesPerView: 2 },
               757: { slidesPerView: 1 },
               0: { slidesPerView: 1 },
@@ -122,19 +122,19 @@ const FeaturedShows = () => {
                     <div className="w-full lg:w-1/2">
                       <div className="p-5">
                         <div className="flex flex-col lg:flex-row justify-between items-center">
-                          <span className="bg-gray px-5 py-2 rounded-full text-prim font-semibold tracking-wide">
+                          <span className="bg-gray px-5 py-2 text-xs rounded-full text-prim font-semibold tracking-wide">
                             {item.episode}
                           </span>
 
                           <Link href="/app/pages">
-                            <p className="py-2 font-light text-gray-200 hover:text-prim tracking-wider transition-all duration-200">
+                            <p className="py-2 font-light text-xs text-gray-200 hover:text-prim tracking-wider transition-all duration-200">
                               <i className="bi bi-mic text-prim"></i>
                               {item.hostName}
                             </p>
                           </Link>
                         </div>
 
-                        <h2 className="my-5 text-2xl lg:text-4xl font-semibold">
+                        <h2 className="my-5 text-2xl lg:text-3xl font-semibold">
                           {item.title}
                         </h2>
 
