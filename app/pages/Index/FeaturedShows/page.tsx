@@ -83,6 +83,21 @@ const FeaturedShows = () => {
 
             <div className="w-full md:w-1/2">
               {/* Custom navigation Button */}
+              <div className="flex justify-start md:justify-end gap-4 mt-6 lg:mt-0">
+                <button
+                  onClick={() => swiperRef.current?.slidePrev()}
+                  className="w-12 h-12 flex items-center justify-center rounded-full border border-prim text-prim hover:bg-prim hover:text-black transition-all duration-200 hover:-translate-x-1 cursor-pointer"
+                >
+                  <i className="bi bi-chevron-double-left"></i>
+                </button>
+
+                <button
+                  onClick={() => swiperRef.current?.slideNext()}
+                  className="w-12 h-12 flex items-center justify-center rounded-full border border-prim text-prim hover:bg-prim hover:text-black transition-all duration-200 hover:-translate-x-1 cursor-pointer"
+                >
+                  <i className="bi bi-chevron-double-right"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
