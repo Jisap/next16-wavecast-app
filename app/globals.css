@@ -333,13 +333,29 @@ body {
 @media (max-width:575px) {} */
 
 .dark-section {
-  background-image: url(../public//Images//texture-bg-1.png);
+  background-image: url(/Images/texture-bg-1.png);
   background-size: cover;
 }
 
 .light-section {
-  background: url(../public//Images//texture-bg-1.png), rgb(38, 38, 41);
+  background: url(/Images/texture-bg-1.png), rgb(38, 38, 41);
   background-size: cover;
+}
+
+.WhyChooseUs-img {
+  position: relative;
+  animation: smallTranslate 5s infinite ease-in-out;
+}
+
+.WhyChooseUs-img img:last-child {
+  position: absolute;
+  bottom: 10%;
+  right: -15%;
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+
 }
 
 
@@ -401,6 +417,10 @@ body {
     top: 80%;
     left: 85%;
   }
+
+  .WhyChooseUs-img img:last-child {
+    right: -5%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -413,5 +433,10 @@ body {
     left: 50%;
     top: 50%;
     /* Lo movemos arriba de la imagen principal en móvil muy pequeño */
+  }
+
+  .WhyChooseUs-img img:last-child {
+    bottom: -12%;
+    right: 16%;
   }
 }
