@@ -14,7 +14,7 @@ const WhyChooseUs = () => {
   return (
     <>
       <div className='light-section'>
-        <div className='px-[8%] lg:px-[16%] py-30'>
+        <div className='max-w-[1400px] mx-auto px-[5%] py-30'>
           <div className='flex flex-col lg:flex-row justify-between items-center gap-20'>
             {/* izda */}
             <div className='w-full lg:w-1/2'>
@@ -22,16 +22,17 @@ const WhyChooseUs = () => {
                 <Image
                   src={WhyChooseUsImg}
                   alt="Why Choose Us"
-                  className="w-full h-fit border-t-2 border-prim pt-5"
+                  className="w-1/2 h-auto border-t-2 border-prim pt-5"
                 />
                 <Image
                   src={WhyChooseUsImg2}
                   alt="Why Choose Us"
-                  className="w-full h-fit"
+                  className="w-1/2 h-auto"
                 />
                 <Image
                   src={WhyChooseUsImg3}
                   alt="Why Choose Us"
+                  className="WhyChooseUs-img-floating"
                 />
               </div>
             </div>
