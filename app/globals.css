@@ -358,6 +358,25 @@ body {
   z-index: 2;
 }
 
+.music-waves {
+  width: 300px;
+  height: 60px;
+  background-image: url(../public/Images/music-waves.png);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: waveScroll 50s linear infinite;
+}
+
+@keyframes waveScroll {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  }
+}
+
 @media (min-width: 1536px) {
   .WhyChooseUs-img .WhyChooseUs-img-floating {
     right: -15%;
