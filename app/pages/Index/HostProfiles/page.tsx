@@ -18,12 +18,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useRef } from "react";
-import Link from "next/link";
+
 
 const HostProfilesData = [
   {
     id: 1,
-    name: "Liam Johnson",
+    name: "Maria Johnson",
     img: host1,
     role: "Developer"
   },
@@ -41,7 +41,7 @@ const HostProfilesData = [
   },
   {
     id: 4,
-    name: "Olivia Jones",
+    name: "Mark Jones",
     img: host4,
     role: "Actor"
   },
@@ -53,13 +53,13 @@ const HostProfilesData = [
   },
   {
     id: 6,
-    name: "Ava Miller",
+    name: "Joshua Miller",
     img: host6,
     role: "Dancer"
   },
   {
     id: 7,
-    name: "James Davis",
+    name: "Kelly Davis",
     img: host7,
     role: "Musician"
   },
@@ -71,25 +71,25 @@ const HostProfilesData = [
   },
   {
     id: 9,
-    name: "Benjamin Martinez",
+    name: "Mia Martinez",
     img: host9,
     role: "Photographer"
   },
   {
     id: 10,
-    name: "Isabella Hernandez",
+    name: "John Hernandez",
     img: host10,
     role: "Writer"
   },
   {
     id: 11,
-    name: "Lucas Lopez",
+    name: "Isabella Lopez",
     img: host11,
     role: "Artist"
   },
   {
     id: 12,
-    name: "Mia Gonzalez",
+    name: "Gerard Gonzalez",
     img: host12,
     role: "Entrepreneur"
   },
