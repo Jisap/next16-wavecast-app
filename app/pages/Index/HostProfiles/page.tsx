@@ -173,6 +173,21 @@ const HostProfiles = () => {
                       />
                     </div>
                   </div>
+
+                  <div className="host-info px-3 py-4">
+                    <h3 className="text-2xl text-gray-300">
+                      {host.name}
+                    </h3>
+
+                    <p className="text-lg text-gray-300">
+                      {host.role}
+                    </p>
+                  </div>
+
+                  <div className="host-icons absolute bottom-5 bg-gray rounded-full right-5 group">
+                    {/* Plus Icon */}
+                    <i className="bi bi-plus-lg bg-gray w-14 h-14 flex items-center justify-center rounded-full curosr-pointer border border-transparent group-hover:rounded-t-none group-hover:bg-gray group-hover:border group-hover:border-gray transition-all duration-300"></i>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
