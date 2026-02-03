@@ -153,7 +153,7 @@ body {
 .hero {
   width: 100%;
   height: 90vh;
-  background: url(../public/Images/texture-bg-1.png), rgb(38, 38, 42);
+  background: url(/Images/texture-bg-1.png), rgb(38, 38, 42);
   position: relative;
   display: flex;
   align-items: center;
@@ -169,7 +169,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(../public/Images/vector-line.png);
+  background: url(/Images/vector-line.png);
   background-repeat: no-repeat;
   z-index: -1;
 }
@@ -359,9 +359,18 @@ body {
 }
 
 .music-waves {
-  width: 300px;
+  width: 100%;
   height: 60px;
-  background-image: url(../public/Images/music-waves.png);
+  background-image: url(/Images/music-waves.png);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: waveScroll 50s linear infinite;
+}
+
+.music-waves2 {
+  width: 100%;
+  height: 60px;
+  background-image: url(/Images/music-waves2.png);
   background-repeat: repeat-x;
   background-size: auto 100%;
   animation: waveScroll 50s linear infinite;
@@ -373,7 +382,7 @@ body {
   }
 
   to {
-    background-position: 100% 0;
+    background-position: -1000px 0;
   }
 }
 

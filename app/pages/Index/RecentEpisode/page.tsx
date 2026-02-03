@@ -80,8 +80,8 @@ const RecentEpisode = () => {
                     <i className="bi bi-clock pe-1"></i> 4hr 12min
                   </h2>
 
-                  <div className="flex items-center gap-3">
-                    <i className="bi bi-balon-heart me-3 text-text text-xl"></i>
+                  <div className="flex items-center gap-3 flex-1 overflow-hidden">
+                    <i className="bi bi-balloon-heart me-3 text-text text-xl"></i>
                     <div className="music-waves"></div>
                   </div>
                 </div>
@@ -115,19 +115,19 @@ const RecentEpisode = () => {
             {recentEpisodesList.map((episode, index) => (
               <div key={index} className="w-full lg:w-1/2">
                 <div className="p-6 rounded-2xl bg-gray">
-                  <div className="flex flex-wrap items-center gap-5">
+                  <div className="flex items-center gap-5 overflow-hidden">
                     <Link href="/pages">
-                      <h2 className="text-gray-300">
+                      <h2 className="text-gray-300 whitespace-nowrap">
                         <i className="bi bi-mic"></i> {episode.author}
                       </h2>
                     </Link>
 
-                    <h2 className="text-gray-300">
+                    <h2 className="text-gray-300 whitespace-nowrap">
                       <i className="bi bi-clock pe-1"></i> {episode.duration}
                     </h2>
 
-                    <div className="flex items-center gap-3">
-                      <i className="bi bi-ballon-heart me-3 text-gray-300 text-xl"></i>
+                    <div className="flex items-center gap-3 flex-1 overflow-hidden">
+                      <i className="bi bi-balloon-heart me-3 text-gray-300 text-xl"></i>
                       <div className="music-waves2"></div>
                     </div>
                   </div>
