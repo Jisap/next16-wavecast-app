@@ -101,7 +101,7 @@ const HostProfiles = () => {
 
   return (
     <>
-      <div className="light-section">
+      <div className="light-section wave-wrapper-section">
         <div className="px-[8%] lg:px-[16%] py-30 pb-10 lg:pb-20">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="w-full lg:w-1/1">
@@ -186,7 +186,15 @@ const HostProfiles = () => {
 
                   <div className="host-icons absolute bottom-5 bg-gray rounded-full right-5 group">
                     {/* Plus Icon */}
-                    <i className="bi bi-plus-lg bg-gray w-14 h-14 flex items-center justify-center rounded-full curosr-pointer border border-transparent group-hover:rounded-t-none group-hover:bg-gray group-hover:border group-hover:border-gray transition-all duration-300"></i>
+                    <i className="bi bi-plus-lg bg-gray w-14 h-14 flex items-center justify-center rounded-full curosr-pointer border border-transparent group-hover:rounded-t-none group-hover:bg-gray-light group-hover:border group-hover:border-gray transition-all duration-300"></i>
+
+                    {/* Hidden Social Icons */}
+                    <div className="host-hidden flex flex-col absolute bottom-13 right-0 opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out bg-gray rounded-t-full p-2">
+                      <i className="bi bi-facebook w-10 h-10 mb-1 flex items-center justify-center rounded-full bg-gray-light border border-prim hover:bg-prim transition-all duration-300 cursor-pointer"></i>
+                      <i className="bi bi-instagram w-10 h-10 mb-1 flex items-center justify-center rounded-full bg-gray-light border border-prim hover:bg-prim transition-all duration-300 cursor-pointer"></i>
+                      <i className="bi bi-twitter w-10 h-10 mb-1 flex items-center justify-center rounded-full bg-gray-light border border-prim hover:bg-prim transition-all duration-300 cursor-pointer"></i>
+                      <i className="bi bi-youtube w-10 h-10 mb-1 flex items-center justify-center rounded-full bg-gray-light border border-prim hover:bg-prim transition-all duration-300 cursor-pointer"></i>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
