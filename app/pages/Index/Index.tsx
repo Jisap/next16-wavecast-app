@@ -4,6 +4,7 @@ import FeaturedShows from './FeaturedShows/page'
 import WhyChooseUs from './WhyChooseUs/page'
 import RecentEpisode from './RecentEpisode/page'
 import HostProfiles from './HostProfiles/page'
+import Testimonial from './Testimonial/page'
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <WhyChooseUs />
       <RecentEpisode />
       <HostProfiles />
+      <Testimonial />
     </>
   )
 }
