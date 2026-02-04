@@ -542,34 +542,39 @@ body {
   background-color: var(--prim);
 }
 
-.test-img {
+/* Base states to prevent flashing */
+.test-img,
+.test-stars,
+.test-content p,
+.test-border,
+.test-info,
+.test-btns {
   opacity: 0;
-  animation: fade-left 1s 0.6s both ease-out;
 }
 
-.test-content-wrap .test-content .test-stars {
-  opacity: 0;
-  animation: fade-right 1s 0.7s both ease-out;
+/* Animations trigger on active slide */
+.swiper-slide-active .test-img {
+  animation: fade-left 1s 0.2s both ease-out;
 }
 
-.test-content-wrap .test-content p {
-  opacity: 0;
-  animation: fade-right 1s 0.8s both ease-out;
+.swiper-slide-active .test-stars {
+  animation: fade-right 0.8s 0.4s both ease-out;
 }
 
-.test-content-wrap .test-content .test-border {
-  opacity: 0;
-  animation: fade-right 1s 1s both ease-out;
+.swiper-slide-active .test-content p {
+  animation: fade-right 0.8s 0.6s both ease-out;
 }
 
-.test-content-wrap .test-content .test-info {
-  opacity: 0;
-  animation: fade-right 1s 1.2s both ease-out;
+.swiper-slide-active .test-border {
+  animation: fade-right 0.8s 0.8s both ease-out;
 }
 
-.test-content-wrap .text-btns {
-  opacity: 0;
-  animation: fade-right 1s 1.5s both ease-out;
+.swiper-slide-active .test-info {
+  animation: fade-right 0.8s 1s both ease-out;
+}
+
+.swiper-slide-active .text-btns {
+  animation: fade-right 0.8s 1.2s both ease-out;
 }
 
 @keyframes fade-right {
