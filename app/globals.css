@@ -505,6 +505,7 @@ body {
 .wave-wrapper-section2::after {
   content: "";
   position: absolute;
+  /* Mueve la onda 80 px hacia arriba sacandola de la sección */
   top: -80px;
   left: 0;
   width: 100%;
@@ -529,6 +530,7 @@ body {
   position: relative;
 }
 
+/* Línea vertical que separa los hosts */
 .host-info::after {
   content: "";
   position: absolute;
@@ -599,4 +601,38 @@ body {
     opacity: 1;
     transform: translateX(0px);
   }
+}
+
+.banner-img {
+  position: relative;
+}
+
+.banner-img::after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  right: -10%;
+  width: 550px;
+  height: 60px;
+  background-image: url(/Images/music-waves.png);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: waveScroll 50s linear infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.banner-img::before {
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  width: 350px;
+  height: 60px;
+  background-image: url(/Images/music-waves.png);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: waveScroll 50s linear infinite;
+  z-index: 10;
+  pointer-events: none;
 }
