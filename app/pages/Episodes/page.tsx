@@ -57,17 +57,24 @@ const page = () => {
     return strategies[sortBy] ? list.sort(strategies[sortBy]) : list;
   }, [visibleEpisodes, sortBy]);
 
-  // El valor por defecto de favorite se carga desde localStorage
-  const [favorites, setFavorites] = useState<Episode[]>(() => {
-    if (typeof window === "undefined") return [];
-    const stored = localStorage.getItem("favoriteEpisodes");
-    return stored ? JSON.parse(stored) : [];
-  });
+  const [mounted, setMounted] = useState(false);
+  const [favorites, setFavorites] = useState<Episode[]>([]);
 
-  // Persistencia automática: Cada vez que 'favorite' cambie, se guarda solo.
+  // 1. Cargar datos de localStorage después del primer render (montaje)
   useEffect(() => {
-    localStorage.setItem("favoriteEpisodes", JSON.stringify(favorites));
-  }, [favorites]);
+    const stored = localStorage.getItem("favoriteEpisodes");
+    if (stored) {
+      setFavorites(JSON.parse(stored));
+    }
+    setMounted(true); // Ya estamos en el cliente y hemos cargado los datos
+  }, []);
+
+  // 2. Persistencia automática: solo guardar si ya hemos montado para no borrar datos al inicio
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem("favoriteEpisodes", JSON.stringify(favorites));
+    }
+  }, [favorites, mounted]);
 
   const toggleFavorite = (episode: Episode) => {
     const isFav = favorites.some((fav) => fav.id === episode.id);          // Verifica si el episodio ya está en favoritos
