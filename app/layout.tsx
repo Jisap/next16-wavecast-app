@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Kanit, Metal_Mania } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./Components/Nav/Navbar";
 import { Footer } from "./Components/Footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 const kanit = Kanit({
   variable: "--font-kanit",
@@ -42,6 +43,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${kanit.variable} ${metalMania.variable} h-[2000px] antialiased`}
       >
         <Navbar />
+        <Toaster position="bottom-right" reverseOrder={false} />
         {children}
         <Footer />
       </body>

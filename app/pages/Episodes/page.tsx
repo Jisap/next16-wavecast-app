@@ -15,7 +15,7 @@ import InputPill from "@/app/Components/InputPill/InputPill"
 import EpisodesData from "@/app/JsonData/EpisodesData.json"
 import Link from "next/link"
 import toast from "react-hot-toast"
-import { useMemo, useState } from "react"
+import { useMemo, useState, useEffect } from "react"
 
 type Episode = {
   id: number;
@@ -56,6 +56,48 @@ const page = () => {
 
     return strategies[sortBy] ? list.sort(strategies[sortBy]) : list;
   }, [visibleEpisodes, sortBy]);
+
+  // El valor por defecto de favorite se carga desde localStorage
+  const [favorites, setFavorites] = useState<Episode[]>(() => {
+    if (typeof window === "undefined") return [];
+    const stored = localStorage.getItem("favoriteEpisodes");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  // Persistencia automática: Cada vez que 'favorite' cambie, se guarda solo.
+  useEffect(() => {
+    localStorage.setItem("favoriteEpisodes", JSON.stringify(favorites));
+  }, [favorites]);
+
+  const toggleFavorite = (episode: Episode) => {
+    const isFav = favorites.some((fav) => fav.id === episode.id);          // Verifica si el episodio ya está en favoritos
+    if (isFav) {
+      setFavorites((prev) => prev.filter((fav) => fav.id !== episode.id)); // Si está en favoritos, lo elimina
+      toast.success(`'${episode.title}' eliminado de favoritos`, {
+        icon: '🗑️',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
+    } else {
+      setFavorites((prev) => [...prev, episode]);                          // Si no está en favoritos, lo agrega
+      toast.success(`'${episode.title}' añadido a favoritos`, {
+        icon: '❤️',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
+    }
+  };
+
+  const isFavorite = (id: number) => {
+    return favorites.some((fav: Episode) => fav.id === id)
+  }
+
 
   return (
     <>
@@ -147,7 +189,7 @@ const page = () => {
                     />
                   </div>
                 </div>
-                {/* Info del episodio (puedes expandir esto más tarde) */}
+                {/* Info del episodio  */}
                 <div className="w-full lg:w-1/1">
                   <div className="p-5">
                     <div className="flex flex-row flex-wrap justify-between items-center">
@@ -157,6 +199,18 @@ const page = () => {
                           {episode.name}
                         </p>
                       </Link>
+
+                      <h2 className="text-gray-300">
+                        <i className="bi bi-clock pe-1 text-prim"></i>
+                        {episode.time}
+                      </h2>
+                      <i
+                        onClick={() => toggleFavorite(episode)}
+                        className={`bi ${isFavorite(episode.id)
+                          ? 'bi-heart-fill text-prim'
+                          : 'bi-heart text-gray-300'}`
+                        }
+                      ></i>
                     </div>
                   </div>
                 </div>
