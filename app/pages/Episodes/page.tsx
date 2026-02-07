@@ -11,6 +11,8 @@ import brand1 from "@/public/Images/brand-icon-2.png"
 import brand3 from "@/public/Images/brand-icon-3.png"
 import brand4 from "@/public/Images/brand-icon-4.png"
 import brand5 from "@/public/Images/brand-icon-5.png"
+import Button from "@/app/Components/Button/Button"
+import InputPill from "@/app/Components/InputPill/InputPill"
 
 
 const page = () => {
@@ -40,6 +42,56 @@ const page = () => {
       </div>
 
       {/* Episodes */}
+      <div className="dark-section relative">
+        <div className="px-[8%] lg:px-[16%] py-30 pb-0 md:pb-10">
+          {/* <div className="w-full bg-gray px-5 py-3 rounded-full flex justify-between items-center gap-5 episode-search">
+            <input
+              type="text"
+              placeholder="Search Episode..."
+              className="w-[80%] py-3 outline-none ps-5 text-xl bg-transparent"
+            />
+
+            <Button variant="btn2">
+              Search <i className="bi bi-arrow-right-short"></i>
+            </Button>
+          </div> */}
+
+          <div className="episode-search">
+            <InputPill
+              placeholder="Search Episode..."
+              buttonText="Search"
+              primaryColor="var(--prim)"
+              secondColor="var(--second)"
+              buttonIcon={<span><i className="bi bi-arrow-right-short"></i></span>}
+              containerClassName="bg-gray border-gray-700"
+              inputClassName="bg-gray text-white placeholder:text-white-400"
+              onButtonClick={() => console.log('Clicked!')}
+            />
+
+            <div className="flex justify-between items-center gap-5 p-2">
+              <h2>
+                Total Episodes Available ( 5 )
+              </h2>
+
+              <div className="relative">
+                <select
+                  //value={}
+                  className="appearance-none bg-gray text-prim px-5 py-2 pr-12 rounded-full outline-none cursor-pointer font-medium hover:bg-gray-light transition-all duration-300"
+                >
+                  <option value="default">Sort By</option>
+                  <option value="high">Episode: High to Low</option>
+                  <option value="low">Episode: Low to High</option>
+                  <option value="title">Title: A to Z</option>
+                </select>
+
+                <i className="bi bi-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-prim pointer-events-none"></i>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </>
   )
 }
