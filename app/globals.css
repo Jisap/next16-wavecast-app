@@ -750,3 +750,26 @@ body {
   z-index: 5;
   width: 70%;
 }
+
+.page-banner {
+  background: url(/Images/Page-banner-bg.png), var(--prim);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  overflow: hidden;
+}
+
+.page-banner .music-waves {
+  width: 500px;
+  height: 80px;
+}
+
+.page-banner .btn2 {
+  background-color: var(--text);
+  color: var(--white);
+
+}
+
+.page-banner .btn2 i {
+  background-color: var(--prim);
+  color: var(--white);
+}
