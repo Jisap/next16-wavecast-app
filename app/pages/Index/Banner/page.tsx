@@ -1,6 +1,9 @@
+"use client"
+
 import Button from '@/app/Components/Button/Button'
 import Image from 'next/image'
 import bannerImg from "@/public/Images/banner.png"
+import InputPill from '@/app/Components/InputPill/InputPill'
 
 const Banner = () => {
   return (
@@ -14,7 +17,8 @@ const Banner = () => {
                   Get the Latest Episode & Never Miss an Episode
                 </h1>
 
-                <div className='flex flex-row items-center gap-2 bg-black rounded-full p-2 lg:p-5 mb-8'>
+                {/* input pill */}
+                {/* <div className='flex flex-row items-center gap-2 bg-black rounded-full p-2 lg:p-5 mb-8'>
                   <div className='email-input grow'>
                     <input
                       type="email"
@@ -28,6 +32,19 @@ const Banner = () => {
                       Subscribe <i className="bi bi-arrow-right-short"></i>
                     </Button>
                   </div>
+                </div> */}
+
+                <div className='flex flex-row items-center gap-2 rounded-full p-2 lg:p-5 mb-8'>
+                  <InputPill
+                    placeholder="Ingresa tu email..."
+                    buttonText="Suscribirse"
+                    primaryColor="var(--prim)"
+                    secondColor="var(--second)"
+                    buttonIcon={<span><i className="bi bi-arrow-right-short"></i></span>}
+                    containerClassName="bg-black border-gray-700"
+                    inputClassName="bg-black text-white placeholder:text-gray-400"
+                    onButtonClick={() => console.log('Clicked!')}
+                  />
                 </div>
               </div>
 
