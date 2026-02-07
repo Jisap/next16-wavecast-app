@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "image": "/episode-1.png",
+    "name": "Sarah Jenkins",
+    "time": "1hr 20min",
+    "title": "The Future of AI in Art",
+    "pere": "Discussing how artificial intelligence is reshaping the creative landscape.",
+    "episode": "Episode 10"
+  },
+  {
+    "id": 2,
+    "image": "/episode-2.png",
+    "name": "James Smith",
+    "time": "45min",
+    "title": "Sustainable Living Tips",
+    "pere": "Practical advice for reducing your carbon footprint in daily life.",
+    "episode": "Episode 11"
+  },
+  {
+    "id": 3,
+    "image": "/episode-3.png",
+    "name": "Maria Garcia",
+    "time": "55min",
+    "title": "Culinary Journeys: Mexico",
+    "pere": "A deep dive into the rich flavors and history of Mexican cuisine.",
+    "episode": "Episode 12"
+  },
+  {
+    "id": 4,
+    "image": "/episode-4.png",
+    "name": "Robert Brown",
+    "time": "1hr 10min",
+    "title": "Tech Trends 2024",
+    "pere": "Analyzing the biggest technology trends to watch out for this year.",
+    "episode": "Episode 13"
+  },
+  {
+    "id": 5,
+    "image": "/episode-5.png",
+    "name": "Linda Davis",
+    "time": "30min",
+    "title": "Mindfulness Meditation",
+    "pere": "A guided session on finding peace and clarity through mindfulness.",
+    "episode": "Episode 14"
+  },
+  {
+    "id": 6,
+    "image": "/episode-6.png",
+    "name": "William Wilson",
+    "time": "1hr 45min",
+    "title": "Space Exploration Updates",
+    "pere": "The latest news on Mars missions and beyond.",
+    "episode": "Episode 15"
+  },
+  {
+    "id": 7,
+    "image": "/episode-7.png",
+    "name": "Elizabeth Miller",
+    "time": "50min",
+    "title": "The Psychology of Habits",
+    "pere": "Understanding how habits are formed and how to break bad ones.",
+    "episode": "Episode 16"
+  },
+  {
+    "id": 8,
+    "image": "/episode-8.png",
+    "name": "Richard Moore",
+    "time": "1hr 15min",
+    "title": "Indie Game Development",
+    "pere": "Insights from successful indie developers on creating hit games.",
+    "episode": "Episode 17"
+  },
+  {
+    "id": 9,
+    "image": "/episode-9.png",
+    "name": "Patricia Taylor",
+    "time": "40min",
+    "title": "Gardening for Beginners",
+    "pere": "Everything you need to know to start your own home garden.",
+    "episode": "Episode 18"
+  },
+  {
+    "id": 10,
+    "image": "/episode-10.png",
+    "name": "Joseph Anderson",
+    "time": "1hr 05min",
+    "title": "History of Jazz Music",
+    "pere": "Tracing the roots and evolution of Jazz through the decades.",
+    "episode": "Episode 19"
+  },
+  {
+    "id": 11,
+    "image": "/episode-11.png",
+    "name": "Jennifer Thomas",
+    "time": "1hr 30min",
+    "title": "Remote Work Culture",
+    "pere": "Exploring the pros and cons of the shift to remote working.",
+    "episode": "Episode 20"
+  },
+  {
+    "id": 12,
+    "image": "/episode-12.png",
+    "name": "Charles Jackson",
+    "time": "1hr",
+    "title": "Understanding Crypto",
+    "pere": "A beginner's guide to cryptocurrency and blockchain technology.",
+    "episode": "Episode 21"
+  }
+]

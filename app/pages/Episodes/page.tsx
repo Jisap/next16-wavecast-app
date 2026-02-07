@@ -11,11 +11,52 @@ import brand1 from "@/public/Images/brand-icon-2.png"
 import brand3 from "@/public/Images/brand-icon-3.png"
 import brand4 from "@/public/Images/brand-icon-4.png"
 import brand5 from "@/public/Images/brand-icon-5.png"
-import Button from "@/app/Components/Button/Button"
 import InputPill from "@/app/Components/InputPill/InputPill"
+import EpisodesData from "@/app/JsonData/EpisodesData.json"
+import Link from "next/link"
+import toast from "react-hot-toast"
+import { useMemo, useState } from "react"
 
+type Episode = {
+  id: number;
+  image: string;
+  name: string;
+  time: string;
+  title: string;
+  pere: string;
+  episode: string;
+}
 
 const page = () => {
+
+  const [showAll, setShowAll] = useState<boolean>(false);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const filteredEpisodes = EpisodesData.filter((episode: Episode) => {
+    return (
+      episode.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+      episode.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+      episode.episode.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+    );
+  });
+
+  const visibleEpisodes = showAll ? filteredEpisodes : filteredEpisodes.slice(0, 10); // Si showAll es true se muestran todos los episodios que pasaron el filtro de búsqueda, si es false se muestran los primeros 10 episodios que pasaron el filtro de búsqueda.
+
+  const [sortBy, setSortBy] = useState<string>('default');
+
+  // Optimizamos el ordenado con useMemo
+  const sortedEpisodes = useMemo(() => {
+    const list = [...visibleEpisodes]; // Clonamos para no mutar el original
+
+    const strategies: Record<string, (a: Episode, b: Episode) => number> = {
+      high: (a, b) => b.id - a.id,
+      low: (a, b) => a.id - b.id,
+      title: (a, b) => a.title.localeCompare(b.title),
+    };
+
+    return strategies[sortBy] ? list.sort(strategies[sortBy]) : list;
+  }, [visibleEpisodes, sortBy]);
+
   return (
     <>
       {/* Page Section */}
@@ -60,6 +101,8 @@ const page = () => {
             <InputPill
               placeholder="Search Episode..."
               buttonText="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               primaryColor="var(--prim)"
               secondColor="var(--second)"
               buttonIcon={<span><i className="bi bi-arrow-right-short"></i></span>}
@@ -70,12 +113,13 @@ const page = () => {
 
             <div className="flex justify-between items-center gap-5 p-2">
               <h2>
-                Total Episodes Available ( 5 )
+                Total Episodes Available ( {visibleEpisodes.length} )
               </h2>
 
               <div className="relative">
                 <select
-                  //value={}
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
                   className="appearance-none bg-gray text-prim px-5 py-2 pr-12 rounded-full outline-none cursor-pointer font-medium hover:bg-gray-light transition-all duration-300"
                 >
                   <option value="default">Sort By</option>
@@ -85,9 +129,17 @@ const page = () => {
                 </select>
 
                 <i className="bi bi-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-prim pointer-events-none"></i>
-
               </div>
             </div>
+
+            {/* Episodes not found */}
+            {searchTerm && sortedEpisodes.length === 0 && (
+              <div className="w-full text-center mt-12">
+                <h2 className="text-3xl text-gray-400 border-t border-b border-red-400 py-5">
+                  '{searchTerm}' Episode Not Found
+                </h2>
+              </div>
+            )}
           </div>
         </div>
       </div>
