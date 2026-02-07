@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "/episode-1.png",
+    "image": "/Images/episode-1.png",
     "name": "Sarah Jenkins",
     "time": "1hr 20min",
     "title": "The Future of AI in Art",
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "image": "/episode-2.png",
+    "image": "/Images/episode-2.png",
     "name": "James Smith",
     "time": "45min",
     "title": "Sustainable Living Tips",
@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "image": "/episode-3.png",
+    "image": "/Images/episode-3.png",
     "name": "Maria Garcia",
     "time": "55min",
     "title": "Culinary Journeys: Mexico",
@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "image": "/episode-4.png",
+    "image": "/Images/episode-4.png",
     "name": "Robert Brown",
     "time": "1hr 10min",
     "title": "Tech Trends 2024",
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "image": "/episode-5.png",
+    "image": "/Images/episode-5.png",
     "name": "Linda Davis",
     "time": "30min",
     "title": "Mindfulness Meditation",
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "image": "/episode-6.png",
+    "image": "/Images/episode-6.png",
     "name": "William Wilson",
     "time": "1hr 45min",
     "title": "Space Exploration Updates",
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "image": "/episode-7.png",
+    "image": "/Images/episode-7.png",
     "name": "Elizabeth Miller",
     "time": "50min",
     "title": "The Psychology of Habits",
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "image": "/episode-8.png",
+    "image": "/Images/episode-8.png",
     "name": "Richard Moore",
     "time": "1hr 15min",
     "title": "Indie Game Development",
@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "image": "/episode-9.png",
+    "image": "/Images/episode-9.png",
     "name": "Patricia Taylor",
     "time": "40min",
     "title": "Gardening for Beginners",
@@ -82,7 +82,7 @@
   },
   {
     "id": 10,
-    "image": "/episode-10.png",
+    "image": "/Images/episode-10.png",
     "name": "Joseph Anderson",
     "time": "1hr 05min",
     "title": "History of Jazz Music",
@@ -91,7 +91,7 @@
   },
   {
     "id": 11,
-    "image": "/episode-11.png",
+    "image": "/Images/episode-11.png",
     "name": "Jennifer Thomas",
     "time": "1hr 30min",
     "title": "Remote Work Culture",
@@ -100,7 +100,7 @@
   },
   {
     "id": 12,
-    "image": "/episode-12.png",
+    "image": "/Images/episode-12.png",
     "name": "Charles Jackson",
     "time": "1hr",
     "title": "Understanding Crypto",

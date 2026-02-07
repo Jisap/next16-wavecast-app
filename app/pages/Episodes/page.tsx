@@ -84,62 +84,84 @@ const page = () => {
 
       {/* Episodes */}
       <div className="dark-section relative">
-        <div className="px-[8%] lg:px-[16%] py-30 pb-0 md:pb-10">
-          {/* <div className="w-full bg-gray px-5 py-3 rounded-full flex justify-between items-center gap-5 episode-search">
-            <input
-              type="text"
-              placeholder="Search Episode..."
-              className="w-[80%] py-3 outline-none ps-5 text-xl bg-transparent"
-            />
+        {/* Solo el buscador flota en la línea divisoria */}
+        <div className="episode-search">
+          <InputPill
+            placeholder="Search Episode..."
+            buttonText="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            primaryColor="var(--prim)"
+            secondColor="var(--second)"
+            buttonIcon={<span><i className="bi bi-arrow-right-short"></i></span>}
+            containerClassName="bg-gray border-gray-700 shadow-xl"
+            inputClassName="bg-gray text-white placeholder:text-white-400"
+            onButtonClick={() => console.log('Clicked!')}
+          />
+        </div>
 
-            <Button variant="btn2">
-              Search <i className="bi bi-arrow-right-short"></i>
-            </Button>
-          </div> */}
+        {/* El contenido de abajo va en su propio contenedor con padding suficiente */}
+        <div className="px-[8%] lg:px-[16%] pt-32 pb-20">
+          <div className="flex justify-between items-center gap-5 p-2 mb-10">
+            <h2 className="text-xl font-medium">
+              Total Episodes Available ( {visibleEpisodes.length} )
+            </h2>
 
-          <div className="episode-search">
-            <InputPill
-              placeholder="Search Episode..."
-              buttonText="Search"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              primaryColor="var(--prim)"
-              secondColor="var(--second)"
-              buttonIcon={<span><i className="bi bi-arrow-right-short"></i></span>}
-              containerClassName="bg-gray border-gray-700"
-              inputClassName="bg-gray text-white placeholder:text-white-400"
-              onButtonClick={() => console.log('Clicked!')}
-            />
+            <div className="relative">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="appearance-none bg-gray text-prim px-8 py-3 pr-12 rounded-full outline-none cursor-pointer font-medium hover:bg-gray-light transition-all duration-300"
+              >
+                <option value="default">Sort By</option>
+                <option value="high">Episode: High to Low</option>
+                <option value="low">Episode: Low to High</option>
+                <option value="title">Title: A to Z</option>
+              </select>
 
-            <div className="flex justify-between items-center gap-5 p-2">
-              <h2>
-                Total Episodes Available ( {visibleEpisodes.length} )
-              </h2>
-
-              <div className="relative">
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none bg-gray text-prim px-5 py-2 pr-12 rounded-full outline-none cursor-pointer font-medium hover:bg-gray-light transition-all duration-300"
-                >
-                  <option value="default">Sort By</option>
-                  <option value="high">Episode: High to Low</option>
-                  <option value="low">Episode: Low to High</option>
-                  <option value="title">Title: A to Z</option>
-                </select>
-
-                <i className="bi bi-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-prim pointer-events-none"></i>
-              </div>
+              <i className="bi bi-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-prim pointer-events-none"></i>
             </div>
+          </div>
 
-            {/* Episodes not found */}
-            {searchTerm && sortedEpisodes.length === 0 && (
-              <div className="w-full text-center mt-12">
-                <h2 className="text-3xl text-gray-400 border-t border-b border-red-400 py-5">
-                  '{searchTerm}' Episode Not Found
-                </h2>
+          {/* Episodes not found */}
+          {searchTerm && sortedEpisodes.length === 0 && (
+            <div className="w-full text-center my-12">
+              <h2 className="text-3xl text-gray-400 border-t border-b border-red-400 py-10">
+                '{searchTerm}' Episode Not Found
+              </h2>
+            </div>
+          )}
+
+          {/* Episodes List */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {sortedEpisodes.map((episode: Episode, index) => (
+              <div key={index} className="flex w-full flex-col lg:flex-row justify-between bg-gray-light rounded-2xl p-6 overflow-hidden hover:scale-[1.02] transition-transform duration-300 shadow-lg">
+                <div className="w-full lg:w-1/2 flex justify-center items-center">
+                  <div className="w-full">
+                    <Image
+                      src={episode.image}
+                      alt={episode.name}
+                      width={500}
+                      height={500}
+                      className="w-full h-auto object-cover rounded-xl"
+                    />
+                  </div>
+                </div>
+                {/* Info del episodio (puedes expandir esto más tarde) */}
+                <div className="w-full lg:w-1/1">
+                  <div className="p-5">
+                    <div className="flex flex-row flex-wrap justify-between items-center">
+                      <Link href={`/pages/Episodes/${episode.id}`}>
+                        <p className="font-light text-gray-200 hover:text-prim tracking-wide transition-all duration-200">
+                          <i className="bi bi-mic text-prim"></i>
+                          {episode.name}
+                        </p>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
+            ))}
           </div>
         </div>
       </div>
