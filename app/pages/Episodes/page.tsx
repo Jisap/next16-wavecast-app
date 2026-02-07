@@ -16,6 +16,7 @@ import EpisodesData from "@/app/JsonData/EpisodesData.json"
 import Link from "next/link"
 import toast from "react-hot-toast"
 import { useMemo, useState, useEffect } from "react"
+import Button from "@/app/Components/Button/Button"
 
 type Episode = {
   id: number;
@@ -184,46 +185,85 @@ const page = () => {
           {/* Episodes List */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {sortedEpisodes.map((episode: Episode, index) => (
-              <div key={index} className="flex w-full flex-col lg:flex-row justify-between bg-gray-light rounded-2xl p-6 overflow-hidden hover:scale-[1.02] transition-transform duration-300 shadow-lg">
-                <div className="w-full lg:w-1/2 flex justify-center items-center">
-                  <div className="w-full">
-                    <Image
-                      src={episode.image}
-                      alt={episode.name}
-                      width={500}
-                      height={500}
-                      className="w-full h-auto object-cover rounded-xl"
-                    />
-                  </div>
+              <div key={index} className="flex flex-col lg:flex-row bg-gray-light rounded-2xl p-4 lg:p-6 overflow-hidden hover:scale-[1.02] transition-transform duration-300 shadow-lg gap-4">
+
+                {/* Columna de la Imagen (40% de ancho en desktop) */}
+                <div className="w-full lg:w-[40%] shrink-0">
+                  <Image
+                    src={episode.image}
+                    alt={episode.name}
+                    width={500}
+                    height={500}
+                    className="w-full h-full object-cover rounded-xl aspect-4/3 lg:aspect-auto"
+                  />
                 </div>
-                {/* Info del episodio  */}
-                <div className="w-full lg:w-1/1">
-                  <div className="p-5">
-                    <div className="flex flex-row flex-wrap justify-between items-center">
+
+                {/* Columna de Información (60% de ancho en desktop) */}
+                <div className="w-full lg:w-[60%] flex flex-col justify-between">
+                  <div className="p-2 lg:p-4">
+                    <div className="flex flex-row justify-between items-start mb-4">
                       <Link href={`/pages/Episodes/${episode.id}`}>
-                        <p className="font-light text-gray-200 hover:text-prim tracking-wide transition-all duration-200">
-                          <i className="bi bi-mic text-prim"></i>
+                        <p className="font-light text-gray-200 hover:text-prim tracking-wide transition-all duration-200 text-sm">
+                          <i className="bi bi-mic text-prim mr-1"></i>
                           {episode.name}
                         </p>
                       </Link>
 
-                      <h2 className="text-gray-300">
-                        <i className="bi bi-clock pe-1 text-prim"></i>
-                        {episode.time}
+                      <div className="flex items-center gap-3">
+                        <h2 className="text-gray-300 text-sm">
+                          <i className="bi bi-clock mr-1 text-prim"></i>
+                          {episode.time}
+                        </h2>
+                        <i
+                          onClick={() => toggleFavorite(episode)}
+                          className={`bi cursor-pointer text-xl ${isFavorite(episode.id)
+                            ? 'bi-heart-fill text-red-500'
+                            : 'bi-heart text-gray-400 hover:text-white'
+                            } transition-colors duration-200`}
+                        ></i>
+                      </div>
+                    </div>
+
+                    <Link href={`/pages/Episodes/${episode.id}`}>
+                      <h2 className="text-2xl lg:text-3xl font-bold hover:text-prim transition-all duration-200 line-clamp-1">
+                        {episode.title}
                       </h2>
-                      <i
-                        onClick={() => toggleFavorite(episode)}
-                        className={`bi ${isFavorite(episode.id)
-                          ? 'bi-heart-fill text-prim'
-                          : 'bi-heart text-gray-300'}`
-                        }
-                      ></i>
+                      <p className="my-3 text-gray-400 text-sm lg:text-base line-clamp-2">
+                        {episode.pere}
+                      </p>
+                    </Link>
+
+                    <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+                      {/* Botón Listen Now */}
+                      <Link href={`/pages/Episodes/${episode.id}`} className="inline-flex items-center group">
+                        <i className="bi bi-play-fill w-10 h-10 lg:w-12 lg:h-12 bg-prim text-black text-xl lg:text-2xl group-hover:bg-second group-hover:text-white rounded-full flex items-center justify-center transition-all duration-300"></i>
+                        <span className="text-base lg:text-lg font-semibold text-prim group-hover:text-second transition-all duration-200 ml-3">
+                          Listen Now
+                        </span>
+                      </Link>
+
+                      {/* Etiqueta de Episodio (más compacta y elegante) */}
+                      <span className="bg-gray/50 border border-gray-700 px-4 py-1.5 rounded-full text-prim text-xs lg:text-sm font-bold uppercase tracking-widest">
+                        {episode.episode}
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {EpisodesData.length > 10 && (
+            <div className="flex justify-center mt-12">
+              <Button
+                variant="btn2"
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? "Show less" : "Show More"}
+                <i className="bi bi-arrow-right-short"></i>
+              </Button>
+            </div>
+          )}
         </div>
       </div>
 

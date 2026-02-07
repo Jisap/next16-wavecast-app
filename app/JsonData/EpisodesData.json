@@ -6,7 +6,7 @@
     "time": "1hr 20min",
     "title": "The Future of AI in Art",
     "pere": "Discussing how artificial intelligence is reshaping the creative landscape.",
-    "episode": "Episode 10"
+    "episode": "Episode 01"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "time": "45min",
     "title": "Sustainable Living Tips",
     "pere": "Practical advice for reducing your carbon footprint in daily life.",
-    "episode": "Episode 11"
+    "episode": "Episode 02"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "time": "55min",
     "title": "Culinary Journeys: Mexico",
     "pere": "A deep dive into the rich flavors and history of Mexican cuisine.",
-    "episode": "Episode 12"
+    "episode": "Episode 03"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "time": "1hr 10min",
     "title": "Tech Trends 2024",
     "pere": "Analyzing the biggest technology trends to watch out for this year.",
-    "episode": "Episode 13"
+    "episode": "Episode 04"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "time": "30min",
     "title": "Mindfulness Meditation",
     "pere": "A guided session on finding peace and clarity through mindfulness.",
-    "episode": "Episode 14"
+    "episode": "Episode 05"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "time": "1hr 45min",
     "title": "Space Exploration Updates",
     "pere": "The latest news on Mars missions and beyond.",
-    "episode": "Episode 15"
+    "episode": "Episode 06"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "time": "50min",
     "title": "The Psychology of Habits",
     "pere": "Understanding how habits are formed and how to break bad ones.",
-    "episode": "Episode 16"
+    "episode": "Episode 07"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "time": "1hr 15min",
     "title": "Indie Game Development",
     "pere": "Insights from successful indie developers on creating hit games.",
-    "episode": "Episode 17"
+    "episode": "Episode 08"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "time": "40min",
     "title": "Gardening for Beginners",
     "pere": "Everything you need to know to start your own home garden.",
-    "episode": "Episode 18"
+    "episode": "Episode 09"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "time": "1hr 05min",
     "title": "History of Jazz Music",
     "pere": "Tracing the roots and evolution of Jazz through the decades.",
-    "episode": "Episode 19"
+    "episode": "Episode 10"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "time": "1hr 30min",
     "title": "Remote Work Culture",
     "pere": "Exploring the pros and cons of the shift to remote working.",
-    "episode": "Episode 20"
+    "episode": "Episode 11"
   },
   {
     "id": 12,
@@ -105,6 +105,6 @@
     "time": "1hr",
     "title": "Understanding Crypto",
     "pere": "A beginner's guide to cryptocurrency and blockchain technology.",
-    "episode": "Episode 21"
+    "episode": "Episode 12"
   }
 ]
