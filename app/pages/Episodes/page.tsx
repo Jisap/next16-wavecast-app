@@ -270,14 +270,15 @@ const page = () => {
           )}
         </div>
 
+        {/* Banner */}
         <div className="px-[8%] lg:px-[10%] py-20">
-          <div className="page-banner p-15 flex flex-col justify-center items-center text-center rounded-2xl relative">
+          <div className="page-banner p-10 lg:pb-20 flex flex-col justify-center items-center text-center rounded-2xl relative">
             <Image
               src={pageBanner1}
               alt="Page Banner"
               width={500}
               height={550}
-              className="hidden lg:block absolute bottom-0 left-0"
+              className="hidden lg:block absolute bottom-0 -left-30 xl:-left-40 z-0 pointer-events-none"
             />
 
             <Image
@@ -285,7 +286,7 @@ const page = () => {
               alt="Page Banner"
               width={500}
               height={550}
-              className="hidden lg:block absolute bottom-0 right-0"
+              className="hidden lg:block absolute bottom-0 -right-30 xl:-right-40 z-0 pointer-events-none"
             />
 
             <div className="music-waves"></div>
@@ -305,7 +306,7 @@ const page = () => {
               </span>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl mb-5 font-semibold w-full lg:w-[50%] text-text">
+            <h1 className="text-5xl lg:text-6xl mb-5 font-semibold w-full lg:w-[50%] text-text z-0">
               Let's Discuss For Any Episodes
             </h1>
 
