@@ -30,7 +30,7 @@ const navLinks: NavLink[] = [
     href: "/pages/Episodes",
     dropdown: [
       { label: "Latest Episodes", href: "/pages/Episodes/LatestEpisodes" },
-      { label: "Favorite Episode", href: "/pages/Episodes/FavoriteEpisode" },
+      { label: "Favorite Episode", href: "/pages/Episodes/FavoriteEpisodes" },
       { label: "Episodes Details", href: "/pages/Episodes/2" }
     ]
   },

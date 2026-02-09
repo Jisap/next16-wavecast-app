@@ -12,31 +12,31 @@ interface EpisodeCardProps {
 
 const EpisodeCard = ({ episode, isFavorite, onToggleFavorite }: EpisodeCardProps) => {
   return (
-    <div className="flex flex-col lg:flex-row bg-gray-light rounded-2xl p-4 lg:p-6 overflow-hidden hover:scale-[1.02] transition-transform duration-300 shadow-lg gap-4">
+    <div className="flex flex-col xl:flex-row bg-gray-light rounded-2xl p-4 lg:p-6 overflow-hidden hover:scale-[1.02] transition-transform duration-300 shadow-lg gap-4">
       {/* Columna de la Imagen (40% de ancho en desktop) */}
-      <div className="w-full lg:w-[40%] shrink-0">
+      <div className="w-full xl:w-[40%] shrink-0">
         <Image
           src={episode.image}
           alt={episode.name}
           width={500}
           height={500}
-          className="w-full h-full object-cover rounded-xl aspect-4/3 lg:aspect-auto"
+          className="w-full h-full object-cover rounded-xl aspect-4/3 xl:aspect-auto"
         />
       </div>
 
       {/* Columna de Información (60% de ancho en desktop) */}
-      <div className="w-full lg:w-[60%] flex flex-col justify-between">
+      <div className="w-full xl:w-[60%] flex flex-col justify-between">
         <div className="p-2 lg:p-4">
-          <div className="flex flex-row justify-between items-start mb-4">
+          <div className="flex flex-row flex-wrap justify-between items-center mb-4 gap-2">
             <Link href={`/pages/Episodes/${episode.id}`}>
-              <p className="font-light text-gray-200 hover:text-prim tracking-wide transition-all duration-200 text-sm">
+              <p className="flex items-center font-light text-gray-200 hover:text-prim tracking-wide transition-all duration-200 text-sm">
                 <i className="bi bi-mic text-prim mr-1"></i>
                 {episode.name}
               </p>
             </Link>
 
             <div className="flex items-center gap-3">
-              <h2 className="text-gray-300 text-sm">
+              <h2 className="flex items-center text-gray-300 text-sm">
                 <i className="bi bi-clock mr-1 text-prim"></i>
                 {episode.time}
               </h2>
@@ -49,7 +49,7 @@ const EpisodeCard = ({ episode, isFavorite, onToggleFavorite }: EpisodeCardProps
           </div>
 
           <Link href={`/pages/Episodes/${episode.id}`}>
-            <h2 className="text-2xl lg:text-3xl font-bold hover:text-prim transition-all duration-200 line-clamp-1">
+            <h2 className="text-2xl xl:text-3xl font-bold hover:text-prim transition-all duration-200 line-clamp-1">
               {episode.title}
             </h2>
             <p className="my-3 text-gray-400 text-sm lg:text-base line-clamp-2">

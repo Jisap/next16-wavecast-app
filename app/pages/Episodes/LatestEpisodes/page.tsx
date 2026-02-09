@@ -4,6 +4,7 @@ import EpisodesData from "@/app/JsonData/EpisodesData.json"
 import PageHeader from "@/app/Components/PageHeader/PageHeader"
 import { useFavorites, Episode } from "@/app/Hooks/useFavorites"
 import EpisodeCard from "@/app/Components/EpisodeCard/EpisodeCard"
+import EpisodeBanner from "@/app/Components/EpisodeBanner/EpisodeBanner"
 
 const LatestEpisodes = () => {
   const { toggleFavorite, isFavorite } = useFavorites();
@@ -30,6 +31,8 @@ const LatestEpisodes = () => {
           ))}
         </div>
       </div>
+
+      <EpisodeBanner />
     </>
   )
 }
