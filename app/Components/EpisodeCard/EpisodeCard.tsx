@@ -49,7 +49,7 @@ const EpisodeCard = ({ episode, isFavorite, onToggleFavorite }: EpisodeCardProps
           </div>
 
           <Link href={`/pages/Episodes/${episode.id}`}>
-            <h2 className="text-2xl xl:text-3xl font-bold hover:text-prim transition-all duration-200 line-clamp-1">
+            <h2 className="text-xl lg:text-2xl font-semibold hover:text-prim transition-all duration-200 line-clamp-1">
               {episode.title}
             </h2>
             <p className="my-3 text-gray-400 text-sm lg:text-base line-clamp-2">
