@@ -13,24 +13,33 @@ import { useState, useMemo } from 'react';
 const faqs = [
   {
     question: "How often are new episodes released?",
-    answer: "We release new episodes every Monday."
+    answer: "New episodes are released every Monday with fresh topics and guest interviews."
   },
   {
-    question: "How often are new episodes released?",
-    answer: "We release new episodes every Monday."
+    question: "Where can I listen to the podcast?",
+    answer: "You can listen on Spotify, Apple Podcasts, Google Podcasts, and directly on our website."
   },
   {
-    question: "How often are new episodes released?",
-    answer: "We release new episodes every Monday."
+    question: "How long are the episodes?",
+    answer: "Each episode typically lasts between 30 and 60 minutes."
   },
   {
-    question: "How often are new episodes released?",
-    answer: "We release new episodes every Monday."
+    question: "Can I suggest a topic or guest?",
+    answer: "Yes, we love hearing from our listeners. You can send us your suggestions through the contact form."
   },
   {
-    question: "How often are new episodes released?",
-    answer: "We release new episodes every Monday."
+    question: "Is the podcast free to listen to?",
+    answer: "Yes, all episodes are completely free and available on all supported platforms."
   },
+  {
+    question: "Do you offer transcripts of the episodes?",
+    answer: "Selected episodes include transcripts, which are available on the episode detail page."
+  }
+]
+
+
+const popularTags = [
+  "Podcast", "Storytelling", "Music", "Innovation", "Technology", "History", "Politics", "Voice", "Insights", "News"
 ]
 
 const EpisodeDetails = () => {
@@ -231,7 +240,7 @@ const EpisodeDetails = () => {
           <aside className='w-full lg:w-[35%] lg:sticky lg:top-24 space-y-6'>
             <div className='bg-gray p-1 rounded-3xl overflow-hidden shadow-2xl group'>
               <div className='bg-gray-dark/50 p-6 rounded-[calc(1.5rem-2px)] border border-gray-700/50'>
-                <div className='flex justify-center flex-col items-center gap-8'>
+                <div className='flex justify-center flex-col items-center gap-4'>
                   <div className='relative w-48 h-48 lg:w-64 lg:h-64'>
                     <div className="absolute inset-0 bg-prim/20 rounded-full blur-3xl group-hover:bg-prim/30 transition-colors duration-500"></div>
                     <div className='relative w-full h-full overflow-hidden rounded-full border-4 border-prim/20 p-2'>
@@ -240,23 +249,76 @@ const EpisodeDetails = () => {
                         alt={episode.title}
                         width={800}
                         height={800}
-                        className='w-full h-full rounded-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105'
+                        className='w-full h-full rounded-full object-cover grayscale-30 group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105'
                       />
                     </div>
                   </div>
 
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold text-white mb-2">{episode.name}</h3>
-                    <p className="text-prim font-medium text-sm tracking-widest uppercase">Special Guest</p>
+                  <div className='text-center w-full'>
+                    <h3 className='text-lg font-bold text-white mb-4 uppercase tracking-widest'>
+                      Follow on
+                    </h3>
+
+                    <div className='flex items-center justify-center gap-3 mb-8'>
+                      {['instagram', 'twitter-x', 'facebook', 'youtube', 'threads'].map((social) => (
+                        <i key={social} className={`bi bi-${social} w-10 h-10 text-prim rounded-full flex items-center justify-center border border-prim/30 hover:border-prim hover:bg-prim hover:text-black transition-all duration-300 cursor-pointer text-lg`}></i>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="w-full border-t border-dashed border-gray-700 pt-6 mt-2">
-                    <Link href={`/pages/Episodes/${episode.id}`} className="flex items-center justify-center gap-3 bg-prim text-black py-4 px-8 rounded-full font-bold hover:bg-second hover:text-white transition-all duration-300 w-full">
-                      <i className="bi bi-play-fill text-2xl"></i>
-                      LISTEN NOW
-                    </Link>
+                  <div className="w-full border-t  border-gray-700 pt-4">
+                    <h3 className='text-xs font-bold text-gray-400 mb-5 text-center uppercase tracking-[0.2em]'>
+                      Listen on Platforms
+                    </h3>
+
+                    <div className="flex flex-wrap justify-center gap-3">
+                      {[
+                        { name: 'Apple', icon: 'brand-icon-1.png' },
+                        { name: 'Spotify', icon: 'brand-icon-2.png' },
+                        { name: 'Google', icon: 'brand-icon-3.png' },
+                        { name: 'Soundcloud', icon: 'brand-icon-4.png' },
+                        { name: 'RSS', icon: 'brand-icon-5.png' },
+                      ].map((platform) => (
+                        <Link
+                          key={platform.name}
+                          href="#"
+                          title={platform.name}
+                          className="w-12 h-12 bg-gray-light hover:bg-prim rounded-xl flex items-center justify-center transition-all duration-300 border border-gray-700 hover:border-prim group"
+                        >
+                          <Image
+                            src={`/Images/${platform.icon}`}
+                            alt={platform.name}
+                            width={24}
+                            height={24}
+                            className="w-6 h-6 object-contain transition-all group-hover:scale-110"
+                          />
+                        </Link>
+                      ))}
+                    </div>
+
+
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Popular Tags Section */}
+            <div className='bg-gray p-6 rounded-3xl border border-gray-700/50'>
+              <div className="flex items-center gap-4 mb-6">
+                <span className="w-1.5 h-6 bg-prim rounded-full"></span>
+                <h3 className='font-bold text-white uppercase tracking-wider text-sm'>Popular Tags</h3>
+              </div>
+
+              <div className='flex flex-wrap gap-2'>
+                {popularTags.map((tag) => (
+                  <Link
+                    key={tag}
+                    href="#"
+                    className='px-4 py-2 bg-gray-light hover:bg-prim text-gray-400 hover:text-black text-xs font-bold rounded-full border border-gray-700 hover:border-prim transition-all duration-300 uppercase tracking-widest'
+                  >
+                    {tag}
+                  </Link>
+                ))}
               </div>
             </div>
 
