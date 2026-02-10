@@ -500,6 +500,18 @@ body {
   .footer-col::after {
     display: none;
   }
+
+  .experience-images .exp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .exp-arrow1 {
+    bottom: -20%;
+    width: 250px;
+    height: 250px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -772,4 +784,16 @@ body {
 .page-banner .btn2 i {
   background-color: var(--prim);
   color: var(--white);
+}
+
+.exp-arrow1 {
+  position: absolute;
+  bottom: -20%;
+  left: 10%;
+  z-index: -1;
+}
+
+.about-wave2::after {
+  top: -35%;
+  height: 150px;
 }
