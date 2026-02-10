@@ -13,6 +13,9 @@ import PageHeader from "@/app/Components/PageHeader/PageHeader"
 import Button from "@/app/Components/Button/Button"
 import Image from "next/image"
 import Link from "next/link"
+import HostProfiles from "../Index/HostProfiles/page"
+import Testimonial from "../Index/Testimonial/page"
+import Banner from "../Index/Banner/page"
 
 
 const About = () => {
@@ -139,6 +142,7 @@ const About = () => {
       {/* Spacer to give room for the wave without covering buttons */}
       <div className="light-section h-24"></div>
 
+      {/* Counter Info */}
       <div className="dark-section about-wave2 wave-wrapper-section2">
         <div className="px-[8%] lg:px-[16%] py-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -196,6 +200,10 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      <HostProfiles />
+      <Testimonial />
+      <Banner />
     </>
   )
 }
