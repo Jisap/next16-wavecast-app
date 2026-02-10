@@ -47,7 +47,7 @@ const navLinks: NavLink[] = [
     dropdown: [
       { label: "About", href: "/pages/About" },
       { label: "Host Profiles", href: "/pages/HostProfiles" },
-      { label: "Pricing Plan", href: "/pages/pricing" },
+      { label: "Pricing Plan", href: "/pages/Pricing" },
       { label: "Faq's", href: "/pages/Faqs" },
       { label: "Contact Us", href: "/pages/Contact" },
       { label: "Page404", href: "/pages/not-found" }

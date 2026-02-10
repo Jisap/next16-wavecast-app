@@ -60,8 +60,9 @@ body {
 }
 
 .btn {
+  --btn-radius: 50px;
   border: 1px solid var(--prim);
-  border-radius: 50px;
+  border-radius: var(--btn-radius);
   font-weight: 600;
   overflow: hidden;
   position: relative;
@@ -101,7 +102,7 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  border-radius: 50px;
+  border-radius: var(--btn-radius);
   width: 0;
   height: 0;
   background-color: var(--second);
@@ -133,7 +134,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 50px;
+  border-radius: var(--btn-radius);
   width: 0;
   height: 0;
   background-color: var(--second);
