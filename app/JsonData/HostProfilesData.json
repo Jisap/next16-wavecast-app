@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Maria Johnson",
+    "img": "/Images/host-profile-1.png",
+    "role": "Developer"
+  },
+  {
+    "id": 2,
+    "name": "Emma Williams",
+    "img": "/Images/host-profile-2.png",
+    "role": "Expert Host"
+  },
+  {
+    "id": 3,
+    "name": "Noah Brown",
+    "img": "/Images/host-profile-3.png",
+    "role": "Singer"
+  },
+  {
+    "id": 4,
+    "name": "Mark Jones",
+    "img": "/Images/host-profile-4.png",
+    "role": "Actor"
+  },
+  {
+    "id": 5,
+    "name": "William Garcia",
+    "img": "/Images/host-profile-5.png",
+    "role": "Chef"
+  },
+  {
+    "id": 6,
+    "name": "Joshua Miller",
+    "img": "/Images/host-profile-6.png",
+    "role": "Dancer"
+  },
+  {
+    "id": 7,
+    "name": "Kelly Davis",
+    "img": "/Images/host-profile-7.png",
+    "role": "Musician"
+  },
+  {
+    "id": 8,
+    "name": "Sophia Rodriguez",
+    "img": "/Images/host-profile-8.png",
+    "role": "Model"
+  },
+  {
+    "id": 9,
+    "name": "Mia Martinez",
+    "img": "/Images/host-profile-9.png",
+    "role": "Photographer"
+  },
+  {
+    "id": 10,
+    "name": "John Hernandez",
+    "img": "/Images/host-profile-10.png",
+    "role": "Writer"
+  },
+  {
+    "id": 11,
+    "name": "Isabella Lopez",
+    "img": "/Images/host-profile-1.png",
+    "role": "Artist"
+  },
+  {
+    "id": 12,
+    "name": "Gerard Gonzalez",
+    "img": "/Images/host-profile-2.png",
+    "role": "Entrepreneur"
+  }
+]

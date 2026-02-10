@@ -1,99 +1,12 @@
 "use client"
 
-import Image from "next/image"
-import host1 from "@/public/Images/host-profile-1.png"
-import host2 from "@/public/Images/host-profile-2.png"
-import host3 from "@/public/Images/host-profile-3.png"
-import host4 from "@/public/Images/host-profile-4.png"
-import host5 from "@/public/Images/host-profile-5.png"
-import host6 from "@/public/Images/host-profile-6.png"
-import host7 from "@/public/Images/host-profile-7.png"
-import host8 from "@/public/Images/host-profile-8.png"
-import host9 from "@/public/Images/host-profile-9.png"
-import host10 from "@/public/Images/host-profile-10.png"
-import host11 from "@/public/Images/host-profile-1.png"
-import host12 from "@/public/Images/host-profile-2.png"
+import HostProfilesData from "@/app/JsonData/HostProfilesData.json"
+import HostCard from "@/app/Components/HostCard/HostCard"
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useRef } from "react";
-
-
-const HostProfilesData = [
-  {
-    id: 1,
-    name: "Maria Johnson",
-    img: host1,
-    role: "Developer"
-  },
-  {
-    id: 2,
-    name: "Emma Williams",
-    img: host2,
-    role: "Expert Host"
-  },
-  {
-    id: 3,
-    name: "Noah Brown",
-    img: host3,
-    role: "Singer"
-  },
-  {
-    id: 4,
-    name: "Mark Jones",
-    img: host4,
-    role: "Actor"
-  },
-  {
-    id: 5,
-    name: "William Garcia",
-    img: host5,
-    role: "Chef"
-  },
-  {
-    id: 6,
-    name: "Joshua Miller",
-    img: host6,
-    role: "Dancer"
-  },
-  {
-    id: 7,
-    name: "Kelly Davis",
-    img: host7,
-    role: "Musician"
-  },
-  {
-    id: 8,
-    name: "Sophia Rodriguez",
-    img: host8,
-    role: "Model"
-  },
-  {
-    id: 9,
-    name: "Mia Martinez",
-    img: host9,
-    role: "Photographer"
-  },
-  {
-    id: 10,
-    name: "John Hernandez",
-    img: host10,
-    role: "Writer"
-  },
-  {
-    id: 11,
-    name: "Isabella Lopez",
-    img: host11,
-    role: "Artist"
-  },
-  {
-    id: 12,
-    name: "Gerard Gonzalez",
-    img: host12,
-    role: "Entrepreneur"
-  },
-]
 
 const HostProfiles = () => {
 
@@ -161,42 +74,12 @@ const HostProfiles = () => {
           >
             {HostProfilesData.map((host, index) => (
               <SwiperSlide key={index}>
-                <div className={`host-card ${index % 2 === 1 ? "offset-card" : ""}`}>
-                  <div className="host-img-wrap">
-                    <div className="host-img overflow-hidden rounded-2xl">
-                      <Image
-                        src={host.img}
-                        alt={host.name}
-                        width={1000}
-                        height={100}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="host-info px-3 py-4">
-                    <h3 className="text-2xl text-gray-300">
-                      {host.name}
-                    </h3>
-
-                    <p className="text-lg text-gray-300">
-                      {host.role}
-                    </p>
-                  </div>
-
-                  <div className="host-icons absolute bottom-5 bg-gray rounded-full right-5 group">
-                    {/* Plus Icon */}
-                    <i className="bi bi-plus-lg bg-gray w-14 h-14 flex items-center justify-center rounded-full curosr-pointer border border-transparent group-hover:rounded-t-none group-hover:bg-gray-light group-hover:border group-hover:border-gray transition-all duration-300"></i>
-
-                    {/* Hidden Social Icons */}
-                    <div className="host-hidden flex flex-col absolute bottom-13 right-0 opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out bg-gray rounded-t-full p-2">
-                      <i className="bi bi-facebook w-10 h-10 mb-1 flex items-center justify-center rounded-full bg-gray-light border border-prim hover:bg-prim transition-all duration-300 cursor-pointer"></i>
-                      <i className="bi bi-instagram w-10 h-10 mb-1 flex items-center justify-center rounded-full bg-gray-light border border-prim hover:bg-prim transition-all duration-300 cursor-pointer"></i>
-                      <i className="bi bi-twitter w-10 h-10 mb-1 flex items-center justify-center rounded-full bg-gray-light border border-prim hover:bg-prim transition-all duration-300 cursor-pointer"></i>
-                      <i className="bi bi-youtube w-10 h-10 mb-1 flex items-center justify-center rounded-full bg-gray-light border border-prim hover:bg-prim transition-all duration-300 cursor-pointer"></i>
-                    </div>
-                  </div>
-                </div>
+                <HostCard
+                  name={host.name}
+                  role={host.role}
+                  img={host.img}
+                  className={index % 2 === 1 ? "offset-card" : ""}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
