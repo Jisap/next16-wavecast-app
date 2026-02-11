@@ -1,5 +1,6 @@
 "use client"
 
+import Button from '@/app/Components/Button/Button'
 import PageHeader from '@/app/Components/PageHeader/PageHeader'
 import client1 from "@/public/Images/contact-client-1.png"
 import client2 from "@/public/Images/contact-client-2.png"
@@ -202,6 +203,57 @@ const Contact = () => {
                     </h2>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div className='w-full lg:w-1/2'>
+              <div className='bg-gray p-8 rounded-3xl shadow-2xl'>
+                <h2 className='text-3xl font-bold mb-2'>
+                  Get In Touch
+                </h2>
+                <p className="text-gray-400 mb-6">
+                  We are here for you! How can we help?
+                </p>
+
+                <div className='border-b border-dashed border-gray-600 mb-8'></div>
+
+                <form className='flex flex-col gap-5'>
+                  <div className='flex flex-col gap-2'>
+                    <label className="text-sm font-medium text-gray-300 ml-1">Name</label>
+                    <input
+                      type="text"
+                      placeholder="Enter Your Name"
+                      className='w-full outline-none bg-gray-light/50 px-5 py-4 rounded-xl border border-gray-600 focus:border-prim focus:bg-gray-light transition-all duration-300 placeholder:text-gray-500'
+                    />
+                  </div>
+
+                  <div className='flex flex-col gap-2'>
+                    <label className="text-sm font-medium text-gray-300 ml-1">Email</label>
+                    <input
+                      type="email"
+                      placeholder="Enter Your Email"
+                      className='w-full outline-none bg-gray-light/50 px-5 py-4 rounded-xl border border-gray-600 focus:border-prim focus:bg-gray-light transition-all duration-300 placeholder:text-gray-500'
+                    />
+                  </div>
+
+                  <div className='flex flex-col gap-2'>
+                    <label className="text-sm font-medium text-gray-300 ml-1">Message</label>
+                    <textarea
+                      placeholder="Write Your Message"
+                      rows={4}
+                      className='w-full outline-none bg-gray-light/50 px-5 py-4 rounded-xl border border-gray-600 focus:border-prim focus:bg-gray-light transition-all duration-300 resize-none placeholder:text-gray-500'
+                    />
+                  </div>
+
+                  <div className="mt-2">
+                    <Button
+                      variant="btn2"
+                      className='w-full py-3 text-lg'
+                    >
+                      Send Message <i className='bi bi-arrow-right ml-2'></i>
+                    </Button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
