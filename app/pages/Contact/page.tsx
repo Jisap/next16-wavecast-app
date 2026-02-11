@@ -64,9 +64,9 @@ const Contact = () => {
               Let Us Help you
             </motion.h1>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-1.5'>
+            <motion.div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-1.5' variants={containerVariants}>
               {/* Main Office */}
-              <div className='flex gap-3 bg-gray-600/30 backdrop-blur-2xl p-5 rounded-2xl group hover:bg-prim hover:text-text transition-all duration-300'>
+              <motion.div className='flex gap-3 bg-gray-600/30 backdrop-blur-2xl p-5 rounded-2xl group hover:bg-prim hover:text-text transition-all duration-300' variants={fadeInUp}>
                 <div className='mt-3 w-15 h-15 rounded-full bg-prim group-hover:bg-text transition-all duration-300 px-5 flex items-center justify-center'>
                   <i className="bi bi-geo-alt text-text group-hover:text-prim text-3xl transition-all duration-300"></i>
                 </div>
@@ -86,9 +86,9 @@ const Contact = () => {
                     Find Location
                   </Link>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className='flex gap-3 bg-gray-600/30 backdrop-blur-2xl p-5 rounded-2xl group hover:bg-prim hover:text-text transition-all duration-300'>
+              <motion.div className='flex gap-3 bg-gray-600/30 backdrop-blur-2xl p-5 rounded-2xl group hover:bg-prim hover:text-text transition-all duration-300' variants={fadeInUp}>
                 <div className='mt-3 w-15 h-15 rounded-full bg-prim group-hover:bg-text transition-all duration-300 px-5 flex items-center justify-center'>
                   <i className="bi bi-envelope text-text group-hover:text-prim text-3xl transition-all duration-300"></i>
                 </div>
@@ -110,9 +110,9 @@ const Contact = () => {
                     Get in Touch
                   </Link>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className='flex gap-3 bg-gray-600/30 backdrop-blur-2xl p-5 rounded-2xl group hover:bg-prim hover:text-text transition-all duration-300'>
+              <motion.div className='flex gap-3 bg-gray-600/30 backdrop-blur-2xl p-5 rounded-2xl group hover:bg-prim hover:text-text transition-all duration-300' variants={fadeInUp}>
                 <div className='mt-3 w-15 h-15 rounded-full bg-prim group-hover:bg-text transition-all duration-300 px-5 flex items-center justify-center'>
                   <i className="bi bi-telephone-inbound text-text group-hover:text-prim text-3xl transition-all duration-300"></i>
                 </div>
@@ -134,33 +134,39 @@ const Contact = () => {
                     Contact Us Today!
                   </Link>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
 
       <div className='light-section wave-wrapper-section'>
         <div className="px-[8%] lg:px-[16%] py-20 pt-40">
-          <div className='flex mask-l-from-tocurrent lg:flex-row justify-between items-center gap-5'>
-            <div className='w-full lg:w-1/2'>
+          <motion.div
+            className='flex mask-l-from-tocurrent lg:flex-row justify-between items-center gap-5'
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={containerVariants}
+          >
+            <motion.div className='w-full lg:w-1/2' variants={containerVariants}>
               <div className='title'>
-                <div>
+                <motion.div variants={fadeInUp}>
                   <h2 className='inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim'>
                     <i className="bi bi-rocket-takeoff pe-4"></i>
                     Contact Us
                   </h2>
-                </div>
+                </motion.div>
 
-                <h2 className='text-5xl md:text-6xl font-semibold mt-7 mb-5'>
+                <motion.h2 className='text-5xl md:text-6xl font-semibold mt-7 mb-5' variants={fadeInUp}>
                   Have questions? don't hesitate to contact us.
-                </h2>
+                </motion.h2>
 
-                <p>
+                <motion.p variants={fadeInUp}>
                   Purpose of an introduction is to grab the audience's attention, their interest, provide a preview of the value or insights.
-                </p>
+                </motion.p>
 
-                <div className='my-5 mt-10 flex items-center gap-3'>
+                <motion.div className='my-5 mt-10 flex items-center gap-3' variants={fadeInUp}>
                   <div className='flex items-center'>
                     <Image
                       src={client1}
@@ -202,11 +208,11 @@ const Contact = () => {
                       2.5k+ reviews (4.95 of 5)
                     </h2>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className='w-full lg:w-1/2'>
+            <motion.div className='w-full lg:w-1/2' variants={fadeInUp}>
               <div className='bg-gray p-8 rounded-3xl shadow-2xl'>
                 <h2 className='text-3xl font-bold mb-2'>
                   Get In Touch
@@ -255,8 +261,8 @@ const Contact = () => {
                   </div>
                 </form>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </>
