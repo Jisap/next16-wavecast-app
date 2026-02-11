@@ -63,11 +63,30 @@ const Contact = () => {
             </motion.h1>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-1.5'>
+              {/* Main Office */}
               <div className='flex gap-3 bg-gray-600/30 backdrop-blur-2xl p-5 rounded-2xl group hover:bg-prim hover:text-text transition-all duration-300'>
                 <div className='mt-3 w-15 h-15 rounded-full bg-prim group-hover:bg-text transition-all duration-300 px-5 flex items-center justify-center'>
                   <i className="bi bi-geo-alt text-text group-hover:text-prim text-3xl transition-all duration-300"></i>
                 </div>
+
+                <div >
+                  <h2 className="text-4xl group-hover:text-text transition-all duration-300">
+                    Main Office
+                  </h2>
+
+                  <p className='text-gray-300 my-2 group-hover:text-text transition-all duration-300'>
+                    123 Podcast Avenue, Suite 456
+                    <br />
+                    New York, NY 10001
+                  </p>
+
+                  <Link href="#" className='text-prim border-b border-prim group-hover:border-text font-semibold group-hover:text-text transition-all duration-300'>
+                    Find Location
+                  </Link>
+                </div>
               </div>
+
+
             </div>
           </motion.div>
         </div>
