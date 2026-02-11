@@ -7,6 +7,7 @@ import client3 from "@/public/Images/contact-client-3.png"
 import client4 from "@/public/Images/contact-client-4.png"
 import client5 from "@/public/Images/contact-client-5.png"
 import { motion, Variants } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 
 
@@ -36,7 +37,7 @@ const Contact = () => {
   return (
     <>
       <PageHeader
-        title="Contact"
+        title={<>Contact<span className="text-prim"> Us</span></>}
       />
 
       <div className='dark-section'>
@@ -86,9 +87,124 @@ const Contact = () => {
                 </div>
               </div>
 
+              <div className='flex gap-3 bg-gray-600/30 backdrop-blur-2xl p-5 rounded-2xl group hover:bg-prim hover:text-text transition-all duration-300'>
+                <div className='mt-3 w-15 h-15 rounded-full bg-prim group-hover:bg-text transition-all duration-300 px-5 flex items-center justify-center'>
+                  <i className="bi bi-envelope text-text group-hover:text-prim text-3xl transition-all duration-300"></i>
+                </div>
 
+                <div >
+                  <h2 className="text-4xl group-hover:text-text transition-all duration-300">
+                    Email Address
+                  </h2>
+
+                  <p className='text-gray-300 my-2 group-hover:text-text transition-all duration-300'>
+                    wavecast@gmail.com
+                  </p>
+
+                  <p className='text-gray-300 my-2 group-hover:text-text transition-all duration-300'>
+                    wavecast@info.com
+                  </p>
+
+                  <Link href="#" className='text-prim border-b border-prim group-hover:border-text font-semibold group-hover:text-text transition-all duration-300'>
+                    Get in Touch
+                  </Link>
+                </div>
+              </div>
+
+              <div className='flex gap-3 bg-gray-600/30 backdrop-blur-2xl p-5 rounded-2xl group hover:bg-prim hover:text-text transition-all duration-300'>
+                <div className='mt-3 w-15 h-15 rounded-full bg-prim group-hover:bg-text transition-all duration-300 px-5 flex items-center justify-center'>
+                  <i className="bi bi-telephone-inbound text-text group-hover:text-prim text-3xl transition-all duration-300"></i>
+                </div>
+
+                <div >
+                  <h2 className="text-4xl group-hover:text-text transition-all duration-300">
+                    Phone Number
+                  </h2>
+
+                  <p className='text-gray-300 my-2 group-hover:text-text transition-all duration-300'>
+                    +91 9876543210
+                  </p>
+
+                  <p className='text-gray-300 my-2 group-hover:text-text transition-all duration-300'>
+                    +91 9876543210
+                  </p>
+
+                  <Link href="#" className='text-prim border-b border-prim group-hover:border-text font-semibold group-hover:text-text transition-all duration-300'>
+                    Contact Us Today!
+                  </Link>
+                </div>
+              </div>
             </div>
           </motion.div>
+        </div>
+      </div>
+
+      <div className='light-section wave-wrapper-section'>
+        <div className="px-[8%] lg:px-[16%] py-20 pt-40">
+          <div className='flex mask-l-from-tocurrent lg:flex-row justify-between items-center gap-5'>
+            <div className='w-full lg:w-1/2'>
+              <div className='title'>
+                <div>
+                  <h2 className='inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim'>
+                    <i className="bi bi-rocket-takeoff pe-4"></i>
+                    Contact Us
+                  </h2>
+                </div>
+
+                <h2 className='text-5xl md:text-6xl font-semibold mt-7 mb-5'>
+                  Have questions? don't hesitate to contact us.
+                </h2>
+
+                <p>
+                  Purpose of an introduction is to grab the audience's attention, their interest, provide a preview of the value or insights.
+                </p>
+
+                <div className='my-5 mt-10 flex items-center gap-3'>
+                  <div className='flex items-center'>
+                    <Image
+                      src={client1}
+                      alt="client1"
+                      className="rounded-full -me-3"
+                    />
+                    <Image
+                      src={client2}
+                      alt="client2"
+                      className="rounded-full -me-3"
+                    />
+                    <Image
+                      src={client3}
+                      alt="client3"
+                      className="rounded-full -me-3"
+                    />
+                    <Image
+                      src={client4}
+                      alt="client4"
+                      className="rounded-full -me-3"
+                    />
+                    <Image
+                      src={client5}
+                      alt="client5"
+                      className="rounded-full -me-3"
+                    />
+                  </div>
+
+                  <div className='flex flex-col gap-2 ms-6'>
+                    <div className='flex items-center gap-1'>
+                      <i className='bi bi-star-fill text-prim'></i>
+                      <i className='bi bi-star-fill text-prim'></i>
+                      <i className='bi bi-star-fill text-prim'></i>
+                      <i className='bi bi-star-fill text-prim'></i>
+                      <i className='bi bi-star-fill text-prim'></i>
+                    </div>
+
+                    <h2>
+                      2.5k+ reviews (4.95 of 5)
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
