@@ -4,7 +4,7 @@ import Button from "@/app/Components/Button/Button"
 import PageHeader from "@/app/Components/PageHeader/PageHeader"
 import musicWavesImg from "@/public/Images/music-waves.png"
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, Variants } from "framer-motion"
 
 const faqData = [
   {
@@ -108,6 +108,36 @@ const Pricing = () => {
     setActiveIndex(prev => prev === index ? null : index);
   };
 
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariant: Variants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
   return (
     <>
       <PageHeader
@@ -117,19 +147,34 @@ const Pricing = () => {
       <div className="dark-section pt-20 pb-30">
         <div className="px-[8%] lg:px-[16%]">
           {/* Header Section */}
-          <div className="title text-center mb-16">
+          <motion.div
+            className="title text-center mb-16"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={containerVariants}
+          >
             <div className="flex flex-col items-center gap-4">
-              <h2 className="inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim">
+              <motion.h2
+                variants={fadeInUp}
+                className="inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim"
+              >
                 <i className="bi bi-rocket-takeoff pe-4"></i>
                 Pricing Plan
-              </h2>
+              </motion.h2>
 
-              <h1 className="text-5xl md:text-7xl font-semibold mt-4 mb-8">
+              <motion.h1
+                variants={fadeInUp}
+                className="text-5xl md:text-7xl font-semibold mt-4 mb-8"
+              >
                 Flexible Pricing <span className="text-prim">Options</span>
-              </h1>
+              </motion.h1>
 
               {/* Billing Toggle */}
-              <div className="flex items-center gap-6 bg-gray-light p-2 rounded-full border border-gray">
+              <motion.div
+                variants={fadeInUp}
+                className="flex items-center gap-6 bg-gray-light p-2 rounded-full border border-gray"
+              >
                 <button
                   onClick={() => setBilling("monthly")}
                   className={`
@@ -147,15 +192,22 @@ const Pricing = () => {
                     -30%
                   </span>
                 </button>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Pricing Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={containerVariants}
+          >
             {pricingPlans.map((plan, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={cardVariant}
                 className={`
                   group relative bg-gray-light p-8 rounded-3xl border-2 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl flex flex-col h-full 
                   ${plan.popular ? "border-prim scale-105 z-10 shadow-prim/5" : "border-gray hover:border-prim/30"}`}
@@ -223,39 +275,61 @@ const Pricing = () => {
                     <i className="bi bi-arrow-right-short ms-2 text-2xl"></i>
                   </Button>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 
       <div className="light-section wave-wrapper-section">
         <div className="relative z-10 px-[8%] lg:px-[16%] py-40 pt-50 pb-20 lg:pb-40">
-          <div className="title flex flex-col items-center justify-center">
-            <div>
+          <motion.div
+            className="title flex flex-col items-center justify-center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={containerVariants}
+          >
+            <motion.div variants={fadeInUp}>
               <h2 className="inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim">
                 <i className="bi bi-rocket-takeoff pe-4"></i>
                 FAQs
               </h2>
-            </div>
+            </motion.div>
 
-            <h1 className="text-5xl md:text-6xl font-semibold mt-7 mb-5">
+            <motion.h1
+              variants={fadeInUp}
+              className="text-5xl md:text-6xl font-semibold mt-7 mb-5"
+            >
               Frequently Asked Questions
-            </h1>
+            </motion.h1>
 
-            <p className="tracking-wider text-start md:text-center lg:w-[70%] mx-auto">
+            <motion.p
+              variants={fadeInUp}
+              className="tracking-wider text-start md:text-center lg:w-[70%] mx-auto"
+            >
               FAQs are wdely used on websites, in product manuals, and in various instructional documents to address frequently asked question by users or customers.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           <div className="flex flex-col lg:flex-row gap-5 pt-10">
             <div className="w-full lg:w-1/2">
-              <div className="space-y-4 w-full py-10">
+              <motion.div
+                className="space-y-4 w-full py-10"
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.1 }}
+                variants={containerVariants}
+              >
                 {leftFaq.map((item, index) => (
-                  <div key={index} className={`
-                    overflow-hidden rounded-xl py-4 px-4 lg:px-8 transition-all duration-300 
-                    ${activeIndex === index ? "bg-prim text-text border border-[#222e48] shadow-lg shadow-prim/20" : "bg-gray-light border border-gray/30"}
-                  `}>
+                  <motion.div
+                    key={index}
+                    variants={fadeInUp}
+                    className={`
+                      overflow-hidden rounded-xl py-4 px-4 lg:px-8 transition-all duration-300 
+                      ${activeIndex === index ? "bg-prim text-text border border-[#222e48] shadow-lg shadow-prim/20" : "bg-gray-light border border-gray/30"}
+                    `}
+                  >
                     <button
                       type="button"
                       onClick={() => toggleAccordion(index)}
@@ -286,20 +360,30 @@ const Pricing = () => {
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
 
             <div className="w-full lg:w-1/2">
-              <div className="space-y-4 w-full py-10">
+              <motion.div
+                className="space-y-4 w-full py-10"
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.1 }}
+                variants={containerVariants}
+              >
                 {rightFaq.map((item, index) => {
                   const realIndex = index + half;
                   return (
-                    <div key={realIndex} className={`
-                      overflow-hidden rounded-xl py-4 px-4 lg:px-8 transition-all duration-300 
-                      ${activeIndex === realIndex ? "bg-prim text-text border border-[#222e48] shadow-lg shadow-prim/20" : "bg-gray-light border border-gray/30"}
-                    `}>
+                    <motion.div
+                      key={realIndex}
+                      variants={fadeInUp}
+                      className={`
+                        overflow-hidden rounded-xl py-4 px-4 lg:px-8 transition-all duration-300 
+                        ${activeIndex === realIndex ? "bg-prim text-text border border-[#222e48] shadow-lg shadow-prim/20" : "bg-gray-light border border-gray/30"}
+                      `}
+                    >
                       <button
                         type="button"
                         onClick={() => toggleAccordion(realIndex)}
@@ -330,10 +414,10 @@ const Pricing = () => {
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    </div>
+                    </motion.div>
                   );
                 })}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
