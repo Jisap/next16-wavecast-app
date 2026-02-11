@@ -136,7 +136,9 @@ const Pricing = () => {
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
-                className={`group relative bg-gray-light p-8 rounded-3xl border-2 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl flex flex-col h-full ${plan.popular ? "border-prim scale-105 z-10 shadow-prim/5" : "border-gray hover:border-prim/30"}`}
+                className={`
+                  group relative bg-gray-light p-8 rounded-3xl border-2 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl flex flex-col h-full 
+                  ${plan.popular ? "border-prim scale-105 z-10 shadow-prim/5" : "border-gray hover:border-prim/30"}`}
               >
                 {plan.popular && (
                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-prim text-black font-bold px-6 py-2 rounded-full text-sm uppercase tracking-widest shadow-lg whitespace-nowrap">
@@ -145,14 +147,20 @@ const Pricing = () => {
                 )}
 
                 <div className="text-center border-b border-dashed border-gray pb-8 mb-8">
-                  <h4 className={`text-2xl font-bold mb-6 ${plan.popular ? "text-prim" : "text-white"}`}>
+                  <h4 className={`
+                    text-2xl font-bold mb-6 
+                    ${plan.popular ? "text-prim" : "text-white"}`}
+                  >
                     {plan.title}
                   </h4>
 
                   <div className="flex justify-center items-end gap-2 mb-6">
                     <span className="text-3xl text-prim font-light opacity-80 mb-2">$</span>
                     <h2 className="text-7xl text-prim font-bold tracking-tighter">
-                      {billing === "monthly" ? plan.monthlyPrice.split('.')[0] : plan.yearlyPrice.split('.')[0]}
+                      {billing === "monthly"
+                        ? plan.monthlyPrice.split('.')[0]
+                        : plan.yearlyPrice.split('.')[0]
+                      }
                     </h2>
                     <span className="text-gray-400 text-xl font-medium mb-2 uppercase">
                       /{billing === "monthly" ? "mo" : "yr"}
@@ -174,6 +182,7 @@ const Pricing = () => {
                         <span className="text-gray-300 group-hover/item:text-white transition-colors duration-200 text-left">{feature}</span>
                       </li>
                     ))}
+
                     {plan.disabledFeatures.map((feature, fIdx) => (
                       <li key={fIdx} className="flex gap-4 items-center opacity-30 grayscale">
                         <div className="w-6 h-6 rounded-full bg-gray/50 flex items-center justify-center text-gray-500">
@@ -199,6 +208,8 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+
+
     </>
   )
 }
