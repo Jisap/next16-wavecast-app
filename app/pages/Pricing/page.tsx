@@ -4,8 +4,9 @@ import Button from "@/app/Components/Button/Button"
 import PageHeader from "@/app/Components/PageHeader/PageHeader"
 import musicWavesImg from "@/public/Images/music-waves.png"
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
-const faqs = [
+const faqData = [
   {
     question: "How often are new episodes released?",
     answer: "New episodes are released every Monday with fresh topics and guest interviews."
@@ -29,7 +30,15 @@ const faqs = [
   {
     question: "Do you offer transcripts of the episodes?",
     answer: "Selected episodes include transcripts, which are available on the episode detail page."
-  }
+  },
+  {
+    question: "How can I support the podcast?",
+    answer: "You can support the podcast by donating through our website or by leaving a positive review on the podcast platform."
+  },
+  {
+    question: "What is the cancellation policy?",
+    answer: "We offer a 30-day money-back guarantee. If you're not satisfied with your purchase, you can contact us for a refund."
+  },
 ]
 
 const pricingPlans = [
@@ -87,6 +96,17 @@ const pricingPlans = [
 
 const Pricing = () => {
   const [billing, setBilling] = useState("monthly");
+
+  // Dividimos los datos en dos para la "doble distribución"
+  const half = Math.ceil(faqData.length / 2);
+  const leftFaq = faqData.slice(0, half);
+  const rightFaq = faqData.slice(half);
+
+  const [activeIndex, setActiveIndex] = useState<number | null>(0); // Opcional: El primero abierto por defecto
+
+  const toggleAccordion = (index: number) => {
+    setActiveIndex(prev => prev === index ? null : index);
+  };
 
   return (
     <>
@@ -209,7 +229,115 @@ const Pricing = () => {
         </div>
       </div>
 
+      <div className="light-section wave-wrapper-section">
+        <div className="relative z-10 px-[8%] lg:px-[16%] py-40 pt-50 pb-20 lg:pb-40">
+          <div className="title flex flex-col items-center justify-center">
+            <div>
+              <h2 className="inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim">
+                <i className="bi bi-rocket-takeoff pe-4"></i>
+                FAQs
+              </h2>
+            </div>
 
+            <h1 className="text-5xl md:text-6xl font-semibold mt-7 mb-5">
+              Frequently Asked Questions
+            </h1>
+
+            <p className="tracking-wider text-start md:text-center lg:w-[70%] mx-auto">
+              FAQs are wdely used on websites, in product manuals, and in various instructional documents to address frequently asked question by users or customers.
+            </p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-5 pt-10">
+            <div className="w-full lg:w-1/2">
+              <div className="space-y-4 w-full py-10">
+                {leftFaq.map((item, index) => (
+                  <div key={index} className={`
+                    overflow-hidden rounded-xl py-4 px-4 lg:px-8 transition-all duration-300 
+                    ${activeIndex === index ? "bg-prim text-text border border-[#222e48] shadow-lg shadow-prim/20" : "bg-gray-light border border-gray/30"}
+                  `}>
+                    <button
+                      type="button"
+                      onClick={() => toggleAccordion(index)}
+                      className={`
+                        w-full flex justify-between items-center cursor-pointer transition-all duration-300
+                        ${activeIndex === index ? "pb-4 border-b border-dashed border-[#222348]" : ""}
+                      `}
+                    >
+                      <span className="text-xl text-left font-medium">{item.question}</span>
+
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${activeIndex === index ? "bg-black/10 rotate-180" : "bg-prim/10"}`}>
+                        <i className={`bi bi-chevron-down text-xl ${activeIndex === index ? "text-gray" : "text-prim"}`}></i>
+                      </div>
+                    </button>
+
+                    <AnimatePresence>
+                      {activeIndex === index && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <p className="text-sm pt-4 leading-relaxed">
+                            {item.answer}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full lg:w-1/2">
+              <div className="space-y-4 w-full py-10">
+                {rightFaq.map((item, index) => {
+                  const realIndex = index + half;
+                  return (
+                    <div key={realIndex} className={`
+                      overflow-hidden rounded-xl py-4 px-4 lg:px-8 transition-all duration-300 
+                      ${activeIndex === realIndex ? "bg-prim text-text border border-[#222e48] shadow-lg shadow-prim/20" : "bg-gray-light border border-gray/30"}
+                    `}>
+                      <button
+                        type="button"
+                        onClick={() => toggleAccordion(realIndex)}
+                        className={`
+                          w-full flex justify-between items-center cursor-pointer transition-all duration-300
+                          ${activeIndex === realIndex ? "pb-4 border-b border-dashed border-[#222348]" : ""}
+                        `}
+                      >
+                        <span className="text-xl text-left font-medium">{item.question}</span>
+
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${activeIndex === realIndex ? "bg-black/10 rotate-180" : "bg-prim/10"}`}>
+                          <i className={`bi bi-chevron-down text-xl ${activeIndex === realIndex ? "text-gray" : "text-prim"}`}></i>
+                        </div>
+                      </button>
+
+                      <AnimatePresence>
+                        {activeIndex === realIndex && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="overflow-hidden"
+                          >
+                            <p className="text-sm pt-4 leading-relaxed">
+                              {item.answer}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
