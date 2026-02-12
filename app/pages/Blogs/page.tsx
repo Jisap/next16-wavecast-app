@@ -26,11 +26,35 @@ const Blogs = () => {
                 <div className="blog-img">
                   <Image src={blog.image} alt="blog-image" width={500} height={500} className="object-cover rounded-xl" />
                 </div>
+
+                <div className="blog-content mt-6">
+                  <div className="flex items-center gap-3">
+                    <span className="px-5 py-2 text-xl rounded-full bg-second hover:bg-prim transition-all duration-200 cursor-pointer">
+                      {blog.type}
+                    </span>
+
+                    <span className="px-5 py-2 text-xl rounded-full bg-gray text-prim cursor-pointer">
+                      {blog.date}
+                    </span>
+                  </div>
+
+                  <h2 className="text-4xl my-5">
+                    {blog.title}
+                  </h2>
+
+                  <div className="flex items-center gap-3">
+                    <span className="text-prim text-xl border-b">Read More</span>
+
+                    <div className="music-waves2"></div>
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
         </div>
       </div>
+
+
     </>
   )
 }
