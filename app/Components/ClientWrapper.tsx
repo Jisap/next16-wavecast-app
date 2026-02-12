@@ -9,12 +9,17 @@ import { Toaster } from 'react-hot-toast'
 const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
 
   const pathname = usePathname()
-  const hideLayout = pathname === "/404-preview"
+
+  // Define valid main routes that SHOULD show the Navbar and Footer
+  const isMainRoute = pathname === "/" || pathname.startsWith("/pages/")
+
+  // Hide layout if it's NOT a main route, OR if it's the explicit 404 preview
+  const hideLayout = !isMainRoute || pathname === "/404-preview"
 
 
   return (
     <>
-      {/* Si hideLayout = false -> no estamos en la página de 404 -> mostramos el Navbar y el Footer */}
+      {/* Si hideLayout = false -> no estamos en la página de 404 o en main route -> mostramos el Navbar y el Footer */}
       {!hideLayout && <Navbar />}
       {children}
       {!hideLayout && <Footer />}

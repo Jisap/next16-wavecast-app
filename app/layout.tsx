@@ -41,12 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${kanit.variable} ${metalMania.variable} h-[2000px] antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${kanit.variable} ${metalMania.variable} antialiased`}
       >
         <ClientWrapper>
           {children}
         </ClientWrapper>
-        <Toaster position="bottom-right" reverseOrder={false} />
       </body>
     </html>
   );
