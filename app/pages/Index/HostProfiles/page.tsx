@@ -7,17 +7,44 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useRef } from "react";
+import { motion, Variants } from "framer-motion";
 
 const HostProfiles = () => {
 
   const swiperRef = useRef<SwiperType | null>(null);
 
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
+
   return (
     <>
       <div className="light-section wave-wrapper-section">
         <div className="px-[8%] lg:px-[16%] py-30 pb-10 lg:pb-20">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="w-full lg:w-1/1">
+          <motion.div
+            className="flex flex-col md:flex-row justify-between items-center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
+            <motion.div className="w-full lg:w-1/2" variants={fadeInUp}>
               <div className="title flex flex-col gap-2">
                 <div>
                   <h2 className="inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim">
@@ -30,9 +57,9 @@ const HostProfiles = () => {
                   Meet the Voices Behind
                 </h1>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="w-full md:w-1/2">
+            <motion.div className="w-full md:w-1/2" variants={fadeInUp}>
               {/* Custom navigation Button */}
               <div className="flex justify-start md:justify-end gap-4 mt-6 lg:mt-0">
                 <button
@@ -49,11 +76,17 @@ const HostProfiles = () => {
                   <i className="bi bi-chevron-double-right"></i>
                 </button>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
-        <div className="mt-0 md:mt-10 px-[8%] lg:px-[16%] lg:pb-30 pb-10">
+        <motion.div
+          className="mt-0 md:mt-10 px-[8%] lg:px-[16%] lg:pb-30 pb-10"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInUp}
+        >
           <Swiper
             onSwiper={(swiper) => { swiperRef.current = swiper }}
             slidesPerView={4}
@@ -83,7 +116,7 @@ const HostProfiles = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
     </>
   )

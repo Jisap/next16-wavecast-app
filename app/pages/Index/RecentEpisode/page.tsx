@@ -4,6 +4,7 @@ import Image from "next/image"
 import bannerImg from "@/public/Images/episode-card-banner.png"
 import Button from "@/app/Components/Button/Button"
 import Link from "next/link"
+import { motion, Variants } from "framer-motion"
 
 
 
@@ -27,12 +28,39 @@ const recentEpisodesList = [
 ]
 
 const RecentEpisode = () => {
+
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
+
   return (
     <>
       <div className="dark-section">
         <div className="px-[8%] lg:px-[16%] py-30 pb-0 md:pb-10">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="w-full lg:w-1/1">
+          <motion.div
+            className="flex flex-col md:flex-row justify-between items-center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
+            <motion.div className="w-full lg:w-1/2" variants={fadeInUp}>
               <div>
                 <h2 className="inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim">
                   <i className="bi bi-rocket-takeoff pe-4"></i>
@@ -43,9 +71,9 @@ const RecentEpisode = () => {
               <h1 className="text-6xl lg:text-7xl font-semibold mt-7 mb-5">
                 Explore Our Latest Podcasts
               </h1>
-            </div>
+            </motion.div>
 
-            <div className="w-full lg:w-1/2">
+            <motion.div className="w-full lg:w-1/2" variants={fadeInUp}>
               <p>
                 Dive into the most recent episodes that just hit the airwaves. Discover what's trending in our podcast world.
               </p>
@@ -53,12 +81,18 @@ const RecentEpisode = () => {
               <Button variant="btn2" className="mt-4">
                 View All Episode <i className="bi bi-arrow-right-short"></i>
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         <div className="mt-10 px-[8%] lg:px-[16%] pb-30">
-          <div className="episodeBanner bg-[#FFCA79] px-5 rounded-2xl pb-5 ">
+          <motion.div
+            className="episodeBanner bg-[#FFCA79] px-5 rounded-2xl pb-5 "
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+          >
             <div className="flex flex-col lg:flex-row justify-center lg:justify-between gap-0 lg:gap-5">
               <div className="w-full lg:w-1/2">
                 <Image
@@ -109,11 +143,17 @@ const RecentEpisode = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col lg:flex-row items-center gap-5 mt-10">
+          <motion.div
+            className="flex flex-col lg:flex-row items-center gap-5 mt-10"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={containerVariants}
+          >
             {recentEpisodesList.map((episode, index) => (
-              <div key={index} className="w-full lg:w-1/2">
+              <motion.div key={index} className="w-full lg:w-1/2" variants={fadeInUp}>
                 <div className="p-6 rounded-2xl bg-gray">
                   <div className="flex items-center gap-5 overflow-hidden">
                     <Link href="/pages">
@@ -154,9 +194,9 @@ const RecentEpisode = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

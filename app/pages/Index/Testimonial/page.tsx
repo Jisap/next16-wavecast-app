@@ -14,6 +14,7 @@ import test4 from "@/public/Images/testimonial-card-4.png"
 import test5 from "@/public/Images/testimonial-card-5.png"
 import quote from "@/public/Images/quote.png"
 import quoteBg from "@/public/Images/testimonial-card-qoute-bg.png"
+import { motion, Variants } from "framer-motion"
 
 
 const TestimonialData = [
@@ -58,33 +59,65 @@ const Testimonial = () => {
 
   const swiperRef = useRef<SwiperType | null>(null);
 
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
+
   return (
     <>
       <div className="dark-section wave-wrapper-section2">
         <div className="px-[8%] lg:px-[16%] py-30 pb-10 lg:pb-20">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <motion.div
+            className="flex flex-col md:flex-row justify-between items-center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
             <div className="w-full flex justify-center items-center text-center">
               <div className="w-full lg:w-1/2 title flex flex-col gap-2">
-                <div>
+                <motion.div variants={fadeInUp}>
                   <h2 className="inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim">
                     <i className="bi bi-rocket-takeoff pe-4"></i>
                     Testimonials
                   </h2>
-                </div>
+                </motion.div>
 
-                <h1 className="text-6xl lg:text-7xl font-semibold mt-4">
+                <motion.h1 className="text-6xl lg:text-7xl font-semibold mt-4" variants={fadeInUp}>
                   Listener Love, What They Say
-                </h1>
+                </motion.h1>
 
-                <p className='text-gray-300 tracking-wider'>
+                <motion.p className='text-gray-300 tracking-wider' variants={fadeInUp}>
                   Explore what our listeners have to say about their experiences with our podcast. Their testimonials capture the essence of the joy, inspiration.
-                </p>
+                </motion.p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className='mt-0 md:mt-10 px-[8%] lg:px-[16%] lg:pb-30 pb-10'>
+        <motion.div
+          className='mt-0 md:mt-10 px-[8%] lg:px-[16%] lg:pb-30 pb-10'
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInUp}
+        >
           <Swiper
             onSwiper={(swiper) => { swiperRef.current = swiper }}
             slidesPerView={1}
@@ -167,7 +200,7 @@ const Testimonial = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
     </>
   )

@@ -1,4 +1,4 @@
-
+"use client"
 
 
 import Image from "next/image"
@@ -12,11 +12,39 @@ import brand5 from "@/public/Images/brand-icon-5.png"
 import HeroImg from "@/public/Images/Hero.png"
 import roundedText from "@/public/Images/Rouded-text.webp"
 import Button from "@/app/Components/Button/Button"
-
-
+import { motion, Variants } from "framer-motion"
 
 
 const Hero = () => {
+
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const fadeInRight: Variants = {
+    hidden: { opacity: 0, x: 100 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.2, ease: "easeOut", delay: 0.5 }
+    }
+  };
+
+  const containerVariants: Variants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.4
+      }
+    }
+  };
+
   return (
     <>
       <div className="hero">
@@ -36,32 +64,43 @@ const Hero = () => {
         </div>
 
         <div className="px-[8%] lg:px-[16%] pt-25">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
-            <div className="w-full lg:w-1/2">
+          <motion.div
+            className="flex flex-col lg:flex-row justify-between items-center gap-10"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
+            <motion.div
+              className="w-full lg:w-1/2"
+              variants={containerVariants}
+            >
               <div className="hero-content w-full">
-                <Image
-                  src={heroBar}
-                  alt="heroBar"
-                />
+                <motion.div variants={fadeInUp}>
+                  <Image
+                    src={heroBar}
+                    alt="heroBar"
+                  />
+                </motion.div>
 
-                <h1 className="text-5xl md:text-7xl my-8 font-bold">
+                <motion.h1 className="text-5xl md:text-7xl my-8 font-bold" variants={fadeInUp}>
                   Explore <span className="text-prim">Sound</span> Storytelling Magic.
-                </h1>
+                </motion.h1>
 
-                <p className="tracking-wider text-xl">
+                <motion.p className="tracking-wider text-xl" variants={fadeInUp}>
                   Discover the harmony of heartfelt conversations. Bringin clarity to life's complexities. Focus on what matters most
-                </p>
+                </motion.p>
 
-                <div className="hero-btn flex items-center gap-5 my-5">
+                <motion.div className="hero-btn flex items-center gap-5 my-5" variants={fadeInUp}>
                   <Button variant="btn2">
                     Latest Episode <i className="bi bi-arrow-right-short"></i>
                   </Button>
                   <Button variant="btn1">
                     Subscribe <i className="bi bi-arrow-right-short"></i>
                   </Button>
-                </div>
+                </motion.div>
 
-                <div className="mt-10">
+                <motion.div className="mt-10" variants={fadeInUp}>
                   <p className="tracking-wider text-xl">
                     Listen to podcaster through
                   </p>
@@ -73,18 +112,18 @@ const Hero = () => {
                     <Image src={brand4} alt="brand4" />
                     <Image src={brand5} alt="brand5" />
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="hero-img">
-              <Image src={HeroImg} alt="HeroImg" />
+            <motion.div className="hero-img" variants={fadeInRight}>
+              <Image src={HeroImg} alt="HeroImg" priority />
               <div className="rounded-text">
                 <Image src={roundedText} alt="roundedText" />
                 <i className="bi bi-arrow-right-short"></i>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </>

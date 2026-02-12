@@ -11,6 +11,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useRef } from "react";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 
 const TopListensData = [
   {
@@ -61,29 +62,55 @@ const FeaturedShows = () => {
 
   const swiperRef = useRef<SwiperType | null>(null);
 
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
   return (
     <>
       <div className="dark-section">
         <div className="px-[8%] lg:px-[10%] py-30 pb-10 lg:pb-20">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <motion.div
+            className="flex flex-col md:flex-row justify-between items-center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
             <div className="w-full lg:w-1/2">
               <div className="title flex flex-col gap-2">
-                <div>
+                <motion.div variants={fadeInUp}>
                   <h2 className="inline-block px-4 py-2 rounded-full text-prim text-2xl font-normal border border-prim">
                     <i className="bi bi-rocket-takeoff pe-4"></i>
                     Featured Shows
                   </h2>
-                </div>
+                </motion.div>
 
-                <h1 className="text-6xl lg:text-7xl font-semibold mt-4">
+                <motion.h1 className="text-6xl lg:text-7xl font-semibold mt-4" variants={fadeInUp}>
                   Top Listens Now
-                </h1>
+                </motion.h1>
               </div>
             </div>
 
             <div className="w-full md:w-1/2">
               {/* Custom navigation Button */}
-              <div className="flex justify-start md:justify-end gap-4 mt-6 lg:mt-0">
+              <motion.div className="flex justify-start md:justify-end gap-4 mt-6 lg:mt-0" variants={fadeInUp}>
                 <button
                   onClick={() => swiperRef.current?.slidePrev()}
                   className="w-12 h-12 flex items-center justify-center rounded-full border border-prim text-prim hover:bg-prim hover:text-black transition-all duration-200 hover:-translate-x-1 cursor-pointer"
@@ -97,12 +124,18 @@ const FeaturedShows = () => {
                 >
                   <i className="bi bi-chevron-double-right"></i>
                 </button>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="mt-10 px-5 pb-30">
+        <motion.div
+          className="mt-10 px-5 pb-30"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={fadeInUp}
+        >
           <Swiper
             onSwiper={(swiper) => { swiperRef.current = swiper }}
             slidesPerView={3}
@@ -174,7 +207,7 @@ const FeaturedShows = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
     </>
   )
