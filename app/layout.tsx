@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "./Components/Nav/Navbar";
 import { Footer } from "./Components/Footer/Footer";
 import { Toaster } from "react-hot-toast";
+import ClientWrapper from "./Components/ClientWrapper";
 
 const kanit = Kanit({
   variable: "--font-kanit",
@@ -42,10 +43,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${kanit.variable} ${metalMania.variable} h-[2000px] antialiased`}
       >
-        <Navbar />
+        <ClientWrapper>
+          {children}
+        </ClientWrapper>
         <Toaster position="bottom-right" reverseOrder={false} />
-        {children}
-        <Footer />
       </body>
     </html>
   );
