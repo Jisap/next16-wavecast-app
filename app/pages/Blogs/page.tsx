@@ -4,6 +4,7 @@ import PageHeader from "@/app/Components/PageHeader/PageHeader"
 import BlogData from "@/app/JsonData/BlogsData.json"
 import Image from "next/image"
 import Link from "next/link"
+import EpisodeBanner from "@/app/Components/EpisodeBanner/EpisodeBanner"
 
 
 
@@ -20,32 +21,32 @@ const Blogs = () => {
             <Link
               href={`/pages/Blogs/${blog.id}`}
               key={index}
-              className="flex flex-col md:flex-row items-center gap-10"
+              className="group h-full"
             >
-              <div className="bg-gray-light w-full p-5 rounded-2xl">
-                <div className="blog-img">
-                  <Image src={blog.image} alt="blog-image" width={500} height={500} className="object-cover rounded-xl" />
+              <div className="bg-gray-light w-full p-4 md:p-5 rounded-2xl h-full flex flex-col">
+                <div className="blog-img overflow-hidden rounded-xl">
+                  <Image src={blog.image} alt="blog-image" width={500} height={500} className="object-cover w-full h-auto rounded-xl transition-transform duration-300 group-hover:scale-105" />
                 </div>
 
-                <div className="blog-content mt-6">
-                  <div className="flex items-center gap-3">
-                    <span className="px-5 py-2 text-xl rounded-full bg-second hover:bg-prim transition-all duration-200 cursor-pointer">
+                <div className="blog-content mt-4 md:mt-6 flex flex-col flex-grow">
+                  <div className="flex items-center gap-2 md:gap-3 flex-wrap">
+                    <span className="px-3 py-1 md:px-5 md:py-2 text-xs md:text-sm font-medium rounded-full bg-second hover:bg-prim transition-all duration-200 cursor-pointer">
                       {blog.type}
                     </span>
 
-                    <span className="px-5 py-2 text-xl rounded-full bg-gray text-prim cursor-pointer">
+                    <span className="px-3 py-1 md:px-5 md:py-2 text-xs md:text-sm font-medium rounded-full bg-gray text-prim cursor-pointer">
                       {blog.date}
                     </span>
                   </div>
 
-                  <h2 className="text-4xl my-5">
+                  <h2 className="text-xl md:text-2xl font-bold my-3 md:my-5 line-clamp-2">
                     {blog.title}
                   </h2>
 
-                  <div className="flex items-center gap-3">
-                    <span className="text-prim text-xl border-b">Read More</span>
+                  <div className="flex items-center gap-3 mt-auto">
+                    <span className="text-prim text-sm md:text-base border-b border-prim/50 whitespace-nowrap">Read More</span>
 
-                    <div className="music-waves2"></div>
+                    <div className="music-waves2 flex-1"></div>
                   </div>
                 </div>
               </div>
@@ -54,7 +55,7 @@ const Blogs = () => {
         </div>
       </div>
 
-
+      <EpisodeBanner />
     </>
   )
 }

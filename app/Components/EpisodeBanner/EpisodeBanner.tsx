@@ -5,17 +5,18 @@ import Button from "@/app/Components/Button/Button"
 import rocketIcon from "@/public/Images/rocket-icon.png"
 import pageBanner1 from "@/public/Images/Page-banner-1.png"
 import pageBanner2 from "@/public/Images/Page-banner-2.png"
+import SectionTitle from "@/app/Components/SectionTitle/SectionTitle"
 
 const EpisodeBanner = () => {
   return (
-    <div className="px-[8%] lg:px-[10%] py-20">
-      <div className="page-banner p-10 lg:pb-20 flex flex-col justify-center items-center text-center rounded-2xl relative">
+    <div className="px-[5%] md:px-[8%] lg:px-[10%] pt-10 md:py-20 dark-section">
+      <div className="page-banner p-8 md:p-15 flex flex-col justify-center items-center text-center rounded-2xl relative">
         <Image
           src={pageBanner1}
           alt="Page Banner"
           width={500}
           height={550}
-          className="hidden lg:block absolute bottom-0 -left-30 xl:-left-40 z-0 pointer-events-none"
+          className="hidden lg:block absolute bottom-0 -left-32 xl:left-0 z-0 pointer-events-none transition-all duration-300"
         />
 
         <Image
@@ -23,31 +24,18 @@ const EpisodeBanner = () => {
           alt="Page Banner"
           width={500}
           height={550}
-          className="hidden lg:block absolute bottom-0 -right-30 xl:-right-40 z-0 pointer-events-none"
+          className="hidden lg:block absolute top-0 -right-32 xl:right-0 z-0 pointer-events-none transition-all duration-300"
         />
 
         <div className="music-waves"></div>
 
-        <div className="my-3 mt-5">
-          <span className="flex items-center gap-2 text-black px-4 py-3 rounded-full border border-black">
-            <Image
-              src={rocketIcon}
-              alt="rocketIcon"
-              width={30}
-              height={30}
-            />
+        <SectionTitle
+          icon={rocketIcon}
+          subtitle="Call To Action"
+          title="Let's Discuss For Any Episodes"
+        />
 
-            <h2 className="text-2xl">
-              Call To Action
-            </h2>
-          </span>
-        </div>
-
-        <h1 className="text-5xl lg:text-6xl mb-5 font-semibold w-full lg:w-[50%] text-text z-0">
-          Let's Discuss For Any Episodes
-        </h1>
-
-        <Button variant="btn2" className="bg-text text-black">
+        <Button variant="btn2" className="bg-text text-black z-10 relative">
           Get In Touch <i className="bi bi-arrow-right-short"></i>
         </Button>
       </div>
