@@ -10,6 +10,7 @@ import client5 from "@/public/Images/contact-client-5.png"
 import { motion, Variants } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import Banner from '../Index/Banner/page'
 
 
 
@@ -143,7 +144,7 @@ const Contact = () => {
       <div className='light-section wave-wrapper-section'>
         <div className="px-[8%] lg:px-[16%] py-20 pt-40">
           <motion.div
-            className='flex mask-l-from-tocurrent lg:flex-row justify-between items-center gap-5'
+            className='flex flex-col lg:flex-row mask-l-from-tocurrent justify-between items-center gap-10 lg:gap-5'
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.1 }}
@@ -213,11 +214,11 @@ const Contact = () => {
             </motion.div>
 
             <motion.div className='w-full lg:w-1/2' variants={fadeInUp}>
-              <div className='bg-gray p-8 rounded-3xl shadow-2xl'>
-                <h2 className='text-3xl font-bold mb-2'>
+              <div className='bg-gray p-6 md:p-8 rounded-3xl shadow-2xl'>
+                <h2 className='text-2xl md:text-3xl font-bold mb-2'>
                   Get In Touch
                 </h2>
-                <p className="text-gray-400 mb-6">
+                <p className="text-sm md:text-base text-gray-400 mb-6">
                   We are here for you! How can we help?
                 </p>
 
@@ -229,7 +230,7 @@ const Contact = () => {
                     <input
                       type="text"
                       placeholder="Enter Your Name"
-                      className='w-full outline-none bg-gray-light/50 px-5 py-4 rounded-xl border border-gray-600 focus:border-prim focus:bg-gray-light transition-all duration-300 placeholder:text-gray-500'
+                      className='w-full outline-none bg-gray-light/50 px-4 py-3 md:px-5 md:py-4 rounded-xl border border-gray-600 focus:border-prim focus:bg-gray-light transition-all duration-300 placeholder:text-gray-500'
                     />
                   </div>
 
@@ -238,7 +239,7 @@ const Contact = () => {
                     <input
                       type="email"
                       placeholder="Enter Your Email"
-                      className='w-full outline-none bg-gray-light/50 px-5 py-4 rounded-xl border border-gray-600 focus:border-prim focus:bg-gray-light transition-all duration-300 placeholder:text-gray-500'
+                      className='w-full outline-none bg-gray-light/50 px-4 py-3 md:px-5 md:py-4 rounded-xl border border-gray-600 focus:border-prim focus:bg-gray-light transition-all duration-300 placeholder:text-gray-500'
                     />
                   </div>
 
@@ -247,14 +248,14 @@ const Contact = () => {
                     <textarea
                       placeholder="Write Your Message"
                       rows={4}
-                      className='w-full outline-none bg-gray-light/50 px-5 py-4 rounded-xl border border-gray-600 focus:border-prim focus:bg-gray-light transition-all duration-300 resize-none placeholder:text-gray-500'
+                      className='w-full outline-none bg-gray-light/50 px-4 py-3 md:px-5 md:py-4 rounded-xl border border-gray-600 focus:border-prim focus:bg-gray-light transition-all duration-300 resize-none placeholder:text-gray-500'
                     />
                   </div>
 
                   <div className="mt-2">
                     <Button
                       variant="btn2"
-                      className='w-full py-3 text-lg'
+                      className='w-full py-3 text-base md:text-lg'
                     >
                       Send Message <i className='bi bi-arrow-right ml-2'></i>
                     </Button>
@@ -264,6 +265,10 @@ const Contact = () => {
             </motion.div>
           </motion.div>
         </div>
+      </div>
+
+      <div className='light-section'>
+        <Banner />
       </div>
     </>
   )
