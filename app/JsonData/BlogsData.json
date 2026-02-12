@@ -3,63 +3,261 @@
     "id": 1,
     "image": "/Images/blog-1.png",
     "title": "Behind the Mic: Meet the Hosts",
+    "mainDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod.",
     "type": "Music",
-    "date": "January 10, 2025"
+    "date": "January 10, 2025",
+    "content": [
+      {
+        "title1": "Our Journey Into Podcasting",
+        "description1": "Discover how our hosts transitioned from local radio and live music events into the world of digital podcasting, bringing their passion for sound and storytelling to a global audience. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. "
+      },
+      {
+        "title2": "Musical Roots and Inspirations",
+        "description2": "From jazz vinyl collections to indie festival stages, explore the diverse musical influences that shape the tone and rhythm of every episode. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. "
+      },
+      {
+        "title3": "Behind the Studio Setup",
+        "description3": "A closer look at the microphones, mixers, and creative workflows that power each recording session, along with the rituals that spark authentic conversations. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      }
+    ],
+    "tags": [
+      "music",
+      "hosts",
+      "behind-the-scenes",
+      "audio",
+      "creative-process"
+    ]
   },
   {
     "id": 2,
     "image": "/Images/blog-2.png",
     "title": "The Art of Crafting Compelling Stories",
+    "mainDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod.",
     "type": "Story",
-    "date": "May 10, 2025"
+    "date": "May 10, 2025",
+    "content": [
+      {
+        "title1": "Building Emotional Arcs",
+        "description1": "Learn how structured storytelling techniques help create tension, empathy, and memorable narrative journeys for listeners. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. "
+      },
+      {
+        "title2": "Characters That Feel Real",
+        "description2": "We explore the importance of authentic voices, relatable motivations, and subtle details that bring characters to life. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title3": "From Idea to Script",
+        "description3": "A practical walkthrough of turning a raw concept into a polished script ready for recording. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      }
+    ],
+    "tags": [
+      "storytelling",
+      "writing",
+      "narrative",
+      "scriptwriting",
+      "creativity"
+    ]
   },
   {
     "id": 3,
     "image": "/Images/blog-3.png",
     "title": "Guest Spotlight: Jones Interview",
+    "mainDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod.",
     "type": "Podcast",
-    "date": "March 10, 2025"
+    "date": "March 10, 2025",
+    "content": [
+      {
+        "title1": "Meet Jones: A Creative Visionary",
+        "description1": "An introduction to Jones and his journey through entrepreneurship, media innovation, and creative leadership. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. "
+      },
+      {
+        "title2": "Lessons From the Interview",
+        "description2": "Key takeaways from the conversation, including resilience strategies and practical advice for aspiring creators. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title3": "Unexpected Moments On Air",
+        "description3": "Highlights from spontaneous and candid exchanges that made this episode unforgettable. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      }
+    ],
+    "tags": [
+      "interview",
+      "guest",
+      "entrepreneurship",
+      "inspiration",
+      "podcast-episode"
+    ]
   },
   {
     "id": 4,
     "image": "/Images/blog-4.png",
     "title": "Top 10 Must-Listen Episodes",
+    "mainDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod.",
     "type": "Podcast",
-    "date": "May 10, 2025"
+    "date": "May 10, 2025",
+    "content": [
+      {
+        "title1": "Fan Favorites",
+        "description1": "A curated list of episodes that received the highest engagement and listener feedback. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. "
+      },
+      {
+        "title2": "Hidden Gems",
+        "description2": "Underrated conversations and stories that deserve a second listen. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title3": "Episodes That Sparked Debate",
+        "description3": "Moments that challenged perspectives and encouraged thoughtful community discussions. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      }
+    ],
+    "tags": [
+      "top10",
+      "best-of",
+      "episodes",
+      "recommendations",
+      "community-picks"
+    ]
   },
   {
     "id": 5,
     "image": "/Images/blog-5.png",
     "title": "Podcast Production 101: From Concept",
+    "mainDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod.",
     "type": "Podcast",
-    "date": "April 10, 2025"
+    "date": "April 10, 2025",
+    "content": [
+      {
+        "title1": "Defining Your Podcast Vision",
+        "description1": "How to clarify your niche, audience, and long-term goals before hitting the record button. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. "
+      },
+      {
+        "title2": "Essential Recording Equipment",
+        "description2": "An overview of beginner-friendly microphones, editing software, and acoustic tips. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title3": "Editing and Publishing Workflow",
+        "description3": "A step-by-step guide to refining your audio and distributing it across major platforms. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      }
+    ],
+    "tags": [
+      "production",
+      "audio-editing",
+      "equipment",
+      "beginners",
+      "podcast-guide"
+    ]
   },
   {
     "id": 6,
     "image": "/Images/blog-6.png",
     "title": "The Future of Podcasting: Trends to Watch",
+    "mainDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod.",
     "type": "Podcast",
-    "date": "February 10, 2025"
+    "date": "February 10, 2025",
+    "content": [
+      {
+        "title1": "AI in Audio Production",
+        "description1": "How artificial intelligence tools are transforming editing, transcription, and audience analytics. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. "
+      },
+      {
+        "title2": "Interactive Listening Experiences",
+        "description2": "The rise of audience participation through live chats, polls, and immersive audio formats. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title3": "Monetization Beyond Ads",
+        "description3": "Subscription models, exclusive content, and brand collaborations shaping sustainable growth. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      }
+    ],
+    "tags": [
+      "future",
+      "ai",
+      "innovation",
+      "trends",
+      "monetization"
+    ]
   },
   {
     "id": 7,
     "image": "/Images/blog-7.png",
     "title": "The Power of Storytelling",
+    "mainDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod.",
     "type": "Story",
-    "date": "June 10, 2025"
+    "date": "June 10, 2025",
+    "content": [
+      {
+        "title1": "Stories That Connect",
+        "description1": "Why personal narratives create stronger bonds between hosts and audiences. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title2": "Cultural Impact of Audio Stories",
+        "description2": "Exploring how podcasts influence perspectives and shape public conversations. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title3": "Transforming Ideas Into Movements",
+        "description3": "How a single powerful story can inspire action and community growth. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      }
+    ],
+    "tags": [
+      "impact",
+      "storytelling",
+      "culture",
+      "communication",
+      "engagement"
+    ]
   },
   {
     "id": 8,
     "image": "/Images/blog-8.png",
     "title": "The Art of Crafting Compelling Stories",
+    "mainDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod.",
     "type": "Story",
-    "date": "July 11, 2025"
+    "date": "July 11, 2025",
+    "content": [
+      {
+        "title1": "The Science of Attention",
+        "description1": "Understanding psychological triggers that keep listeners engaged from start to finish. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title2": "Balancing Facts and Emotion",
+        "description2": "How to combine research with heartfelt storytelling for maximum impact. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title3": "Refining Your Narrative Voice",
+        "description3": "Techniques to develop a consistent and recognizable storytelling style. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      }
+    ],
+    "tags": [
+      "narrative-techniques",
+      "voice",
+      "psychology",
+      "content-creation",
+      "writing-tips"
+    ]
   },
   {
     "id": 9,
     "image": "/Images/blog-9.png",
     "title": "Creating a Podcast Community",
+    "mainDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod.",
     "type": "Community",
-    "date": "August 12, 2025"
+    "date": "August 12, 2025",
+    "content": [
+      {
+        "title1": "Engaging Beyond the Episode",
+        "description1": "Strategies for building conversations on social media and community platforms. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title2": "Hosting Live Events",
+        "description2": "The benefits of meetups, livestreams, and Q&A sessions to strengthen audience loyalty. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      },
+      {
+        "title3": "Turning Listeners Into Ambassadors",
+        "description3": "How to empower your audience to share, support, and grow your podcast organically. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam, quod."
+      }
+    ],
+    "tags": [
+      "community",
+      "engagement",
+      "audience-growth",
+      "social-media",
+      "events"
+    ]
   }
 ]

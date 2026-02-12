@@ -25,7 +25,7 @@ const Pricing = () => {
     setActiveIndex(prev => prev === index ? null : index);
   };
 
-  const fadeInUp: Variants = {
+  const fadeInUp: any = {
     hidden: { opacity: 0, y: 30 },
     show: {
       opacity: 1,
@@ -34,7 +34,7 @@ const Pricing = () => {
     }
   };
 
-  const containerVariants: Variants = {
+  const containerVariants: any = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -45,7 +45,7 @@ const Pricing = () => {
     }
   };
 
-  const cardVariant: Variants = {
+  const cardVariant: any = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
     show: {
       opacity: 1,
