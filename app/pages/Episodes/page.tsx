@@ -8,6 +8,7 @@ import PageHeader from "@/app/Components/PageHeader/PageHeader"
 import { useFavorites, Episode } from "@/app/Hooks/useFavorites"
 import EpisodeCard from "@/app/Components/EpisodeCard/EpisodeCard"
 import EpisodeBanner from "@/app/Components/EpisodeBanner/EpisodeBanner"
+import { motion, Variants } from "framer-motion"
 
 const page = () => {
   const [showAll, setShowAll] = useState<boolean>(false);
@@ -38,6 +39,22 @@ const page = () => {
     return strategies[sortBy] ? list.sort(strategies[sortBy]) : list;
   }, [visibleEpisodes, sortBy]);
 
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+    }
+  };
 
   return (
     <>
@@ -48,7 +65,13 @@ const page = () => {
 
       {/* Episodes */}
       <div className="dark-section relative">
-        <div className="episode-search">
+        <motion.div
+          className="episode-search"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInUp}
+        >
           <InputPill
             placeholder="Search Episode..."
             buttonText="Search"
@@ -61,10 +84,16 @@ const page = () => {
             inputClassName="bg-gray text-white placeholder:text-white-400"
             onButtonClick={() => console.log('Clicked!')}
           />
-        </div>
+        </motion.div>
 
         <div className="px-[8%] lg:px-[16%] pt-32 pb-20">
-          <div className="flex justify-between items-center gap-5 p-2 mb-10">
+          <motion.div
+            className="flex justify-between items-center gap-5 p-2 mb-10"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+          >
             <h2 className="text-xl font-medium">
               Total Episodes Available ( {visibleEpisodes.length} )
             </h2>
@@ -83,30 +112,48 @@ const page = () => {
 
               <i className="bi bi-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-prim pointer-events-none"></i>
             </div>
-          </div>
+          </motion.div>
 
           {searchTerm && sortedEpisodes.length === 0 && (
-            <div className="w-full text-center my-12">
+            <motion.div
+              className="w-full text-center my-12"
+              initial="hidden"
+              animate="show"
+              variants={fadeInUp}
+            >
               <h2 className="text-3xl text-gray-400 border-t border-b border-red-400 py-10">
                 '{searchTerm}' Episode Not Found
               </h2>
-            </div>
+            </motion.div>
           )}
 
           {/* Episodes List */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={containerVariants}
+          >
             {sortedEpisodes.map((episode: Episode, index) => (
-              <EpisodeCard
-                key={index}
-                episode={episode}
-                isFavorite={isFavorite(episode.id)}
-                onToggleFavorite={toggleFavorite}
-              />
+              <motion.div key={index} variants={fadeInUp}>
+                <EpisodeCard
+                  episode={episode}
+                  isFavorite={isFavorite(episode.id)}
+                  onToggleFavorite={toggleFavorite}
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {EpisodesData.length > 10 && (
-            <div className="flex justify-center mt-12">
+            <motion.div
+              className="flex justify-center mt-12"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeInUp}
+            >
               <Button
                 variant="btn2"
                 onClick={() => setShowAll(!showAll)}
@@ -114,12 +161,14 @@ const page = () => {
                 {showAll ? "Show less" : "Show More"}
                 <i className="bi bi-arrow-right-short"></i>
               </Button>
-            </div>
+            </motion.div>
           )}
         </div>
 
         {/* Banner Section */}
-        <EpisodeBanner />
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={fadeInUp}>
+          <EpisodeBanner />
+        </motion.div>
       </div>
 
     </>
