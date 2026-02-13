@@ -9,6 +9,7 @@ import EpisodeCard from '@/app/Components/EpisodeCard/EpisodeCard';
 import EpisodeBanner from '@/app/Components/EpisodeBanner/EpisodeBanner';
 import Image from 'next/image';
 import { useState, useMemo } from 'react';
+import { motion, Variants } from "framer-motion"
 
 const faqs = [
   {
@@ -66,6 +67,23 @@ const EpisodeDetails = () => {
     }
   };
 
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+    }
+  };
+
   // Evitamos errores de hidratación
   if (!mounted) return null;
 
@@ -91,46 +109,52 @@ const EpisodeDetails = () => {
 
       {/* Episode Details Wrapper */}
       <div className='dark-section px-[8%] lg:px-[10%] xl:px-[16%] py-20'>
-        <div className='flex flex-col lg:flex-row items-start gap-10'>
+        <motion.div
+          className='flex flex-col lg:flex-row items-start gap-10'
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+        >
 
           {/* Main Content Column (65%) */}
-          <div className='w-full lg:w-[65%]'>
+          <motion.div className='w-full lg:w-[65%]' variants={containerVariants}>
             <div className='bg-gray p-6 rounded-3xl space-y-8'>
 
               {/* Main Episode Card Integration */}
-              <div className="bg-gray-dark/30 rounded-2xl overflow-hidden">
+              <motion.div className="bg-gray-dark/30 rounded-2xl overflow-hidden" variants={fadeInUp}>
                 <EpisodeCard
                   episode={episode}
                   isFavorite={isFavorite(episode.id)}
                   onToggleFavorite={toggleFavorite}
                 />
-              </div>
+              </motion.div>
 
               {/* Episode Content Sections */}
-              <div className='bg-gray-light rounded-2xl p-6 lg:p-8 space-y-10'>
+              <motion.div className='bg-gray-light rounded-2xl p-6 lg:p-8 space-y-10' variants={containerVariants}>
 
                 {/* Description */}
-                <section>
+                <motion.section variants={fadeInUp}>
                   <h2 className='text-2xl lg:text-3xl font-bold mb-4 text-white'>
                     Episode Description
                   </h2>
                   <p className='text-gray-400 tracking-wide leading-relaxed text-sm lg:text-base'>
                     Explore the enchanting world of podcasting with our latest episode, where we dive deep into the art of storytelling and the power of the human voice. Join us as we uncover hidden gems and share exclusive insights that will leave you inspired and motivated.
                   </p>
-                </section>
+                </motion.section>
 
                 {/* Guest Appearance */}
-                <section>
+                <motion.section variants={fadeInUp}>
                   <h2 className='text-2xl lg:text-3xl font-bold mb-4 text-white'>
                     Guest Appearance
                   </h2>
                   <p className='text-gray-400 tracking-wide leading-relaxed text-sm lg:text-base'>
                     Learn more about our special guest, a seasoned storyteller with a passion for weaving narratives that resonate. In this segment of our podcast, we bring you the insights and perspectives of remarkable individuals who have made their mark in various fields.
                   </p>
-                </section>
+                </motion.section>
 
                 {/* Related Episodes */}
-                <section>
+                <motion.section variants={fadeInUp}>
                   <h2 className='text-2xl lg:text-3xl font-bold mb-6 text-white'>
                     Related Episodes
                   </h2>
@@ -162,10 +186,10 @@ const EpisodeDetails = () => {
                       </Link>
                     ))}
                   </div>
-                </section>
+                </motion.section>
 
                 {/* Transcript Section */}
-                <section>
+                <motion.section variants={fadeInUp}>
                   <h2 className='text-2xl lg:text-3xl font-bold mb-4 text-white'>
                     Transcript & Insights
                   </h2>
@@ -177,10 +201,10 @@ const EpisodeDetails = () => {
                       "The ever-changing world of apps gives you a front-row ticket to the latest technological marvels. Our podcast explores the various programs that enrich and simplify our modern existence through creativity and utility."
                     </p>
                   </div>
-                </section>
+                </motion.section>
 
                 {/* Social Share / Follow */}
-                <div className='flex flex-col sm:flex-row items-center justify-between gap-6 p-6 bg-gray rounded-2xl border border-gray-700'>
+                <motion.div className='flex flex-col sm:flex-row items-center justify-between gap-6 p-6 bg-gray rounded-2xl border border-gray-700' variants={fadeInUp}>
                   <h2 className='text-prim text-2xl font-bold flex items-center gap-2'>
                     Follow US <i className='bi bi-chevron-double-right text-sm'></i>
                   </h2>
@@ -190,11 +214,11 @@ const EpisodeDetails = () => {
                       <i key={social} className={`bi bi-${social} w-10 h-10 text-prim rounded-full flex items-center justify-center border border-prim/30 hover:border-prim hover:bg-prim hover:text-black transition-all duration-300 cursor-pointer text-lg`}></i>
                     ))}
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* FAQs Section */}
-              <div className='bg-gray-light p-6 lg:p-10 rounded-3xl'>
+              <motion.div className='bg-gray-light p-6 lg:p-10 rounded-3xl' variants={fadeInUp}>
                 <div className="flex items-center gap-4 mb-8">
                   <span className="w-2 h-10 bg-prim rounded-full"></span>
                   <h2 className='text-3xl font-bold text-white'>Frequently Asked Questions</h2>
@@ -232,13 +256,13 @@ const EpisodeDetails = () => {
                     )
                   })}
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Sidebar Column (35%) */}
-          <aside className='w-full lg:w-[35%] lg:sticky lg:top-24 space-y-6'>
-            <div className='bg-gray p-1 rounded-3xl overflow-hidden shadow-2xl group'>
+          <motion.aside className='w-full lg:w-[35%] lg:sticky lg:top-24 space-y-6' variants={containerVariants}>
+            <motion.div className='bg-gray p-1 rounded-3xl overflow-hidden shadow-2xl group' variants={fadeInUp}>
               <div className='bg-gray-dark/50 p-6 rounded-[calc(1.5rem-2px)] border border-gray-700/50'>
                 <div className='flex justify-center flex-col items-center gap-4'>
                   <div className='relative w-48 h-48 lg:w-64 lg:h-64'>
@@ -300,10 +324,10 @@ const EpisodeDetails = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Popular Tags Section */}
-            <div className='bg-gray p-6 rounded-3xl border border-gray-700/50'>
+            <motion.div className='bg-gray p-6 rounded-3xl border border-gray-700/50' variants={fadeInUp}>
               <div className="flex items-center gap-4 mb-6">
                 <span className="w-1.5 h-6 bg-prim rounded-full"></span>
                 <h3 className='font-bold text-white uppercase tracking-wider text-sm'>Popular Tags</h3>
@@ -320,10 +344,10 @@ const EpisodeDetails = () => {
                   </Link>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Newsletter or similar sidebar element */}
-            <div className='bg-prim p-8 rounded-3xl text-black'>
+            <motion.div className='bg-prim p-8 rounded-3xl text-black' variants={fadeInUp}>
               <h3 className='text-2xl font-bold mb-4'>Newsletter</h3>
               <p className='text-sm mb-6 font-medium opacity-80'>Get the latest updates and exclusive content delivered to your inbox.</p>
               <div className='relative'>
@@ -332,13 +356,15 @@ const EpisodeDetails = () => {
                   <i className='bi bi-arrow-right'></i>
                 </button>
               </div>
-            </div>
-          </aside>
+            </motion.div>
+          </motion.aside>
 
-        </div>
+        </motion.div>
       </div>
 
-      <EpisodeBanner />
+      <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={fadeInUp}>
+        <EpisodeBanner />
+      </motion.div>
     </>
   )
 }
