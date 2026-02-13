@@ -65,26 +65,27 @@ const page = () => {
 
       {/* Episodes */}
       <div className="dark-section relative">
-        <motion.div
-          className="episode-search"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInUp}
-        >
-          <InputPill
-            placeholder="Search Episode..."
-            buttonText="Search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            primaryColor="var(--prim)"
-            secondColor="var(--second)"
-            buttonIcon={<span><i className="bi bi-arrow-right-short"></i></span>}
-            containerClassName="bg-gray border-gray-700 shadow-xl"
-            inputClassName="bg-gray text-white placeholder:text-white-400"
-            onButtonClick={() => console.log('Clicked!')}
-          />
-        </motion.div>
+        <div className="episode-search">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+          >
+            <InputPill
+              placeholder="Search Episode..."
+              buttonText="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              primaryColor="var(--prim)"
+              secondColor="var(--second)"
+              buttonIcon={<span><i className="bi bi-arrow-right-short"></i></span>}
+              containerClassName="bg-gray border-gray-700 shadow-xl"
+              inputClassName="bg-gray text-white placeholder:text-white-400"
+              onButtonClick={() => console.log('Clicked!')}
+            />
+          </motion.div>
+        </div>
 
         <div className="px-[8%] lg:px-[16%] pt-32 pb-20">
           <motion.div
